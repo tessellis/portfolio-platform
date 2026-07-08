@@ -1,9 +1,9 @@
 import Link from 'next/link';
-import { projects } from '@/lib/projects';
+import { getFeaturedProjects } from '@/lib/projects';
 import styles from './FeaturedWork.module.css';
 
 export function FeaturedWork() {
-  const featuredProjects = projects.filter((p) => p.featured || p.slug === 'project-two' || p.slug === 'project-three').slice(0, 3);
+  const featuredProjects = getFeaturedProjects();
 
   return (
     <section className={`${styles.work} section`}>
@@ -16,18 +16,18 @@ export function FeaturedWork() {
         </div>
 
         <div className={styles.bento}>
-          {featuredProjects.map((project) => (
+          {featuredProjects.map((project, index) => (
             <Link
               key={project.slug}
               href={`/work/${project.slug}`}
-              className={`${styles.card} ${project.featured ? styles.featuredCard : ''}`}
+              className={`${styles.card} ${index === 0 ? styles.featuredCard : ''}`}
             >
               <div className={styles.thumbnail} />
               <div className={styles.cardContent}>
-                <h3>{project.title}</h3>
-                <p>{project.description}</p>
+                <h3>{project.frontmatter.title}</h3>
+                <p>{project.frontmatter.description}</p>
                 <div className={styles.tags}>
-                  {project.tags.map((tag) => (
+                  {project.frontmatter.tags.map((tag) => (
                     <span key={tag} className={styles.tag}>
                       {tag}
                     </span>
