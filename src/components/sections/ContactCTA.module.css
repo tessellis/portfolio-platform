@@ -1,0 +1,39 @@
+.cta {
+  background-color: var(--color-bg-secondary);
+}
+
+.inner {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.inner h2 {
+  font-size: var(--text-3xl);
+}
+
+.inner p {
+  color: var(--color-text-secondary);
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: var(--space-3) var(--space-8);
+  background-color: var(--color-text-primary);
+  color: var(--color-bg-primary);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  margin-top: var(--space-2);
+  transition: background-color var(--transition-fast);
+}
+
+.button:hover {
+  background-color: var(--color-text-secondary);
+  color: var(--color-bg-primary);
+}
