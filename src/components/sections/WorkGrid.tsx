@@ -2,17 +2,22 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { projects, allCategories } from '@/lib/projects';
+import { allCategories } from '@/lib/constants';
 import { ProjectCategory } from '@/types/project';
+import { MDXFile, WorkFrontmatter } from '@/lib/mdx';
 import styles from './WorkGrid.module.css';
 
-export function WorkGrid() {
+interface WorkGridProps {
+  projects: MDXFile<WorkFrontmatter>[];
+}
+
+export function WorkGrid({ projects }: WorkGridProps) {
   const [activeFilter, setActiveFilter] = useState<ProjectCategory | 'All'>('All');
 
   const filteredProjects =
     activeFilter === 'All'
       ? projects
-      : projects.filter((p) => p.categories.includes(activeFilter));
+      : projects.filter((p) => p.frontmatter.categories.includes(activeFilter));
 
   return (
     <div>
@@ -39,10 +44,10 @@ export function WorkGrid() {
           <Link key={project.slug} href={`/work/${project.slug}`} className={styles.card}>
             <div className={styles.thumbnail} />
             <div className={styles.cardContent}>
-              <h3>{project.title}</h3>
-              <p>{project.description}</p>
+              <h3>{project.frontmatter.title}</h3>
+              <p>{project.frontmatter.description}</p>
               <div className={styles.tags}>
-                {project.tags.map((tag) => (
+                {project.frontmatter.tags.map((tag) => (
                   <span key={tag} className={styles.tag}>
                     {tag}
                   </span>
