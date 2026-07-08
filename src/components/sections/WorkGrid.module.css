@@ -1,0 +1,120 @@
+.filterBar {
+  display: flex;
+  gap: var(--space-2);
+  overflow-x: auto;
+  padding-bottom: var(--space-2);
+  margin-bottom: var(--space-8);
+  scrollbar-width: none;
+}
+
+.filterBar::-webkit-scrollbar {
+  display: none;
+}
+
+.filterPill {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-md);
+  font-weight: var(--font-medium);
+  color: var(--color-text-secondary);
+  background: none;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  padding: var(--space-1) var(--space-3);
+  min-height: 28px;
+  min-width: 40px;
+  cursor: pointer;
+  transition: border-color var(--transition-fast), color var(--transition-fast), background-color var(--transition-fast);
+  white-space: nowrap;
+}
+
+.filterPill:hover {
+  border-color: var(--color-border-strong);
+  color: var(--color-text-primary);
+}
+
+.active {
+  background-color: var(--color-text-primary);
+  border-color: var(--color-text-primary);
+  color: var(--color-bg-primary);
+}
+
+.active:hover {
+  color: var(--color-bg-primary);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: border-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.card:hover {
+  border-color: var(--color-border-strong);
+  transform: translateY(-2px);
+}
+
+.thumbnail {
+  aspect-ratio: 16 / 9;
+  background-color: var(--color-bg-tertiary);
+}
+
+.cardContent {
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.cardContent h3 {
+  font-size: var(--text-xl);
+}
+
+.cardContent p {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+}
+
+.tag {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  padding: var(--space-1) var(--space-3);
+}
+
+.empty {
+  color: var(--color-text-muted);
+  text-align: center;
+  padding: var(--space-16) 0;
+}
+
+@media (min-width: 640px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

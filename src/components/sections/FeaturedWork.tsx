@@ -1,31 +1,10 @@
 import Link from 'next/link';
+import { projects } from '@/lib/projects';
 import styles from './FeaturedWork.module.css';
 
-const projects = [
-  {
-    slug: 'project-one',
-    title: 'Project One',
-    description: 'A short one-line description of the flagship project goes here.',
-    tags: ['Next.js', 'TypeScript', 'PostgreSQL'],
-    featured: true,
-  },
-  {
-    slug: 'project-two',
-    title: 'Project Two',
-    description: 'A short one-line description of this project.',
-    tags: ['React', 'Node.js'],
-    featured: false,
-  },
-  {
-    slug: 'project-three',
-    title: 'Project Three',
-    description: 'A short one-line description of this project.',
-    tags: ['Python', 'TensorFlow'],
-    featured: false,
-  },
-];
-
 export function FeaturedWork() {
+  const featuredProjects = projects.filter((p) => p.featured || p.slug === 'project-two' || p.slug === 'project-three').slice(0, 3);
+
   return (
     <section className={`${styles.work} section`}>
       <div className="container">
@@ -37,7 +16,7 @@ export function FeaturedWork() {
         </div>
 
         <div className={styles.bento}>
-          {projects.map((project) => (
+          {featuredProjects.map((project) => (
             <Link
               key={project.slug}
               href={`/work/${project.slug}`}
