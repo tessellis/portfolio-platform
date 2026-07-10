@@ -23,9 +23,22 @@
   --color-border: #e2e2e0;
   --color-border-strong: #c4c4c2;
 
+  /* Hero mesh gradient — light mode */
+    --gradient-hero: radial-gradient(
+    circle,
+    rgba(238, 174, 202, 1) 0%,
+    rgba(182, 205, 221, 1) 54%,
+    rgba(148, 187, 233, 1) 100%
+  );
+  --gradient-hero-base: #fdfcfb;
+  --header-solid-bg: #fdf6f0;
+  --gradient-hero-base: #fdfcfb;
+  --header-solid-bg: #fdf6f0;
+
   /* Typography */
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  --font-heading: var(--font-heading), 'Bungee', sans-serif;
 
   /* Typography — fluid scale */
   --text-xs: 0.75rem;
@@ -102,6 +115,17 @@
 
   --color-border: #2e2e2c;
   --color-border-strong: #3f3f3d;
+
+  /* Hero mesh gradient — dark mode */
+  /* Hero circular gradient — dark mode */
+  --gradient-hero: radial-gradient(
+    circle,
+    rgba(214, 92, 42, 1) 0%,
+    rgba(94, 42, 74, 1) 54%,
+    rgba(10, 9, 8, 1) 100%
+  );
+  --gradient-hero-base: #0a0908;
+  --header-solid-bg: #1a1210;
 }
 
 @media (min-width: 640px) {

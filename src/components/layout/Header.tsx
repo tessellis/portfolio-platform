@@ -17,15 +17,12 @@ export function Header() {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
 
-  // Close mobile menu whenever the route changes (render-time state adjustment)
   const [prevPathname, setPrevPathname] = useState(pathname);
   if (prevPathname !== pathname) {
     setPrevPathname(pathname);
     if (menuOpen) setMenuOpen(false);
   }
 
-  // Lock body scroll while mobile menu is open — legitimate effect since it
-  // synchronizes React state with an external system (the DOM)
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : '';
     return () => {
@@ -37,10 +34,9 @@ export function Header() {
     <header className={styles.header}>
       <nav className={styles.nav}>
         <Link href="/" className={styles.logo}>
-          tessellis
+          yourname
         </Link>
 
-        {/* Desktop nav */}
         <ul className={styles.links}>
           {navLinks.map(({ label, href }) => (
             <li key={href}>
@@ -69,7 +65,6 @@ export function Header() {
         </div>
       </nav>
 
-      {/* Mobile menu overlay */}
       <div className={`${styles.mobileMenu} ${menuOpen ? styles.mobileMenuOpen : ''}`}>
         <ul className={styles.mobileLinks}>
           {navLinks.map(({ label, href }) => (
