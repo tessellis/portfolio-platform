@@ -3,7 +3,7 @@ import styles from './Hero.module.css';
 
 export function Hero() {
   return (
-    <section className={`${styles.hero} section`}>
+    <section className={`${styles.hero} grain`} data-hero>
       <div className="container">
         <p className={styles.eyebrow}>Full stack developer & UX engineer</p>
         <h1 className={styles.headline}>Tess Ellis</h1>

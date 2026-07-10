@@ -1,7 +1,15 @@
 .hero {
-  min-height: 80vh;
+  margin-top: calc(-1 * var(--header-height));
+  padding-top: calc(var(--space-32) + var(--header-height));
+  padding-bottom: var(--space-32);
+  min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--space-6);
+  background-image: var(--gradient-hero);
+  background-color: var(--gradient-hero-base);
 }
 
 .eyebrow {
