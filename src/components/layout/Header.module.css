@@ -154,3 +154,22 @@
     display: none;
   }
 }
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-base);
+  font-weight: var(--font-semibold);
+  color: var(--color-text-primary);
+  letter-spacing: -0.02em;
+  margin-right: auto;
+}
+
+.logoIcon {
+  transition: filter var(--transition-fast);
+}
+
+[data-theme="dark"] .logoIcon {
+  filter: invert(1);
+}

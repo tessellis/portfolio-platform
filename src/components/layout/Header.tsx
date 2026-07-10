@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import { ThemeToggle } from '@/components/ui/ThemeToggle';
@@ -34,7 +35,15 @@ export function Header() {
     <header className={styles.header}>
       <nav className={styles.nav}>
         <Link href="/" className={styles.logo}>
-          yourname
+          <Image
+            src="/smile.svg"
+            alt=""
+            width={24}
+            height={24}
+            priority
+            className={styles.logoIcon}
+          />
+          tessellis
         </Link>
 
         <ul className={styles.links}>
