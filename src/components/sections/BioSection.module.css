@@ -1,0 +1,30 @@
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+}
+
+.visual {
+  aspect-ratio: 1 / 1;
+  background-color: var(--color-bg-tertiary);
+  border-radius: var(--radius-lg);
+  max-width: 320px;
+}
+
+.text h1 {
+  font-size: var(--text-4xl);
+  margin-bottom: var(--space-6);
+}
+
+.text p {
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-4);
+  max-width: 65ch;
+}
+
+@media (min-width: 640px) {
+  .grid {
+    grid-template-columns: 320px 1fr;
+    align-items: start;
+  }
+}
