@@ -1,8 +1,11 @@
 .field {
   position: absolute;
-  inset: 0;
-  pointer-events: none;
+  top: 0;
+  left: 0;
+  right: 0;
   z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
 }
 
 .sparkleWrap {
@@ -21,12 +24,12 @@
 
 @keyframes sparkleIn {
   from { opacity: 0; transform: scale(0.5); }
-  to { opacity: 0.7; transform: scale(1); }
+  to { opacity: 0.6; transform: scale(1); }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .sparkle {
     animation: none;
-    opacity: 0.7;
+    opacity: 0.6;
   }
 }
