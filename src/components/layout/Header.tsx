@@ -1,10 +1,10 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import { ThemeToggle } from '@/components/ui/ThemeToggle';
+import { useThemeRevealKey } from '@/lib/useThemeRevealKey';
 import styles from './Header.module.css';
 
 const navLinks = [
@@ -17,12 +17,21 @@ const navLinks = [
 export function Header() {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [hasHero, setHasHero] = useState(false);
+  const themeKey = useThemeRevealKey();
 
   const [prevPathname, setPrevPathname] = useState(pathname);
   if (prevPathname !== pathname) {
     setPrevPathname(pathname);
     if (menuOpen) setMenuOpen(false);
   }
+
+  useEffect(() => {
+    const id = requestAnimationFrame(() => {
+      setHasHero(!!document.querySelector('[data-hero]'));
+    });
+    return () => cancelAnimationFrame(id);
+  }, [pathname]);
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : '';
@@ -32,17 +41,12 @@ export function Header() {
   }, [menuOpen]);
 
   return (
-    <header className={styles.header}>
+    <header
+      key={themeKey}
+      className={`${styles.header} ${hasHero ? styles.delayedReveal : ''}`}
+    >
       <nav className={styles.nav}>
         <Link href="/" className={styles.logo}>
-          <Image
-            src="/smile.svg"
-            alt=""
-            width={24}
-            height={24}
-            priority
-            className={styles.logoIcon}
-          />
           tessellis
         </Link>
 

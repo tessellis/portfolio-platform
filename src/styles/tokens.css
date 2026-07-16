@@ -7,6 +7,9 @@
 */
 
 :root {
+   /* Hero reveal timing */
+  --hero-header-delay: 1.6s;
+  
   /* Colors - Light Mode */
   --color-bg-primary: #faf6ee;
   --color-bg-secondary: #f2ede1;
