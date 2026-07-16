@@ -47,7 +47,15 @@ export function Header() {
     >
       <nav className={styles.nav}>
         <Link href="/" className={styles.logo}>
-          tessellis
+          {Array.from('tessellis').map((char, i) => (
+            <span
+              key={i}
+              className={styles.logoLetter}
+              style={{ color: `var(--flash-${i % 6})` }}
+            >
+              {char}
+            </span>
+          ))}
         </Link>
 
         <ul className={styles.links}>
