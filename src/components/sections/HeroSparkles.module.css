@@ -1,0 +1,26 @@
+.field {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.sparkle {
+  position: absolute;
+  display: block;
+  color: var(--color-text-primary);
+  opacity: 0;
+  animation: sparkleIn 0.6s ease-out forwards;
+}
+
+@keyframes sparkleIn {
+  from { opacity: 0; transform: scale(0.5); }
+  to { opacity: 0.6; transform: scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sparkle {
+    animation: none;
+    opacity: 0.6;
+  }
+}
