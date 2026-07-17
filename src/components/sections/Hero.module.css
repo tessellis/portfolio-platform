@@ -1,4 +1,5 @@
 .hero {
+  position: relative;
   margin-top: calc(-1 * var(--header-height));
   padding-top: calc(var(--space-32) + var(--header-height));
   padding-bottom: var(--space-32);
@@ -12,28 +13,14 @@
 .contentRow {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: var(--space-16);
+  align-items: center;
+  gap: var(--space-8);
 }
 
 .iconWrap {
   flex-shrink: 0;
   width: clamp(120px, 30vw, 200px);
-  margin-bottom: var(--space-8 );
   overflow: visible;
-}
-
-@media (min-width: 768px) {
-  .contentRow {
-    flex-direction: row;
-    align-items: center;
-    gap: 2rem;
-  }
-
-  .iconWrap {
-    width: clamp(220px, 22vw, 380px);
-    margin-bottom: 0;
-  }
 }
 
 .content {
@@ -41,6 +28,31 @@
   z-index: 2;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-width: 0;
+}
+
+@media (min-width: 768px) {
+  .contentRow {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-12);
+  }
+
+  .iconWrap {
+    width: clamp(220px, 22vw, 380px);
+  }
+
+  .content {
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+
+.titleBlock {
+  display: inline-block;
+  will-change: transform;
 }
 
 .eyebrow {
@@ -70,7 +82,6 @@
   font-size: clamp(3rem, 2rem + 6vw, 6.5rem);
   letter-spacing: -0.02em;
   line-height: 1.05;
-  margin-bottom: var(--space-6);
 }
 
 .letter {
@@ -96,19 +107,27 @@
   font-size: var(--text-xl);
   color: var(--color-text-secondary);
   max-width: 52ch;
+  margin-top: var(--space-6);
   margin-bottom: var(--space-8);
   opacity: 0;
   animation: fadeInUp 0.6s ease-out forwards;
-  animation-delay: 1.3s;
+  animation-delay: 2.15s;
 }
 
 .actions {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: var(--space-4);
   opacity: 0;
   animation: fadeInUp 0.6s ease-out forwards;
-  animation-delay: 1.45s;
+  animation-delay: 2.7s;
+}
+
+@media (min-width: 768px) {
+  .actions {
+    justify-content: flex-start;
+  }
 }
 
 @keyframes fadeInUp {
@@ -149,7 +168,6 @@
   color: var(--color-text-primary);
 }
 
-/* Respect users who don't want motion — show final state immediately */
 @media (prefers-reduced-motion: reduce) {
   .eyebrowWord,
   .letter,
@@ -166,5 +184,9 @@
 
   .letter {
     color: var(--color-text-primary);
+  }
+
+  .titleBlock {
+    transform: none !important;
   }
 }

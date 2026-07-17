@@ -3,47 +3,55 @@
   width: 100%;
   height: auto;
   overflow: visible;
+  opacity: 0;
+  animation: iconFadeIn 0.5s ease-out forwards;
+  animation-delay: 1.45s;
 }
 
-.iconWrap {
-  flex-shrink: 0;
-  width: clamp(120px, 30vw, 200px);
-  overflow: visible;
+@keyframes iconFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
-@media (min-width: 768px) {
-  .iconWrap {
-    width: clamp(220px, 20vw, 320px);
-  }
+.iconGroup {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: iconBounce 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  animation-delay: 3.2s; 
+}
+
+@keyframes iconBounce {
+  0%   { transform: scale(1); }
+  30%  { transform: scale(1.22, 0.82); }
+  48%  { transform: scale(0.88, 1.18); }
+  65%  { transform: scale(1.08, 0.94); }
+  82%  { transform: scale(0.97, 1.03); }
+  100% { transform: scale(1, 1); }
 }
 
 .piece {
-  opacity: 0;
-  transform: translate(var(--tx), var(--ty)) rotate(var(--rot));
-  transform-box: fill-box;
-  transform-origin: center;
-  animation: assemblePiece 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-  animation-delay: var(--delay);
+  fill: var(--icon-neutral);
+  animation: pieceColorize 0.5s ease-out forwards;
+  animation-delay: 3.12s;
 }
 
-@keyframes assemblePiece {
-  0% {
-    opacity: 0;
-    transform: translate(var(--tx), var(--ty)) rotate(var(--rot));
-  }
-  60% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 1;
-    transform: translate(0, 0) rotate(0deg);
-  }
+@keyframes pieceColorize {
+  from { fill: var(--icon-neutral); }
+  to { fill: var(--flash-color); }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .piece {
+  .icon {
     animation: none;
     opacity: 1;
-    transform: none;
+  }
+
+  .iconGroup {
+    animation: none;
+  }
+
+  .piece {
+    animation: none;
+    fill: var(--flash-color);
   }
 }

@@ -5,7 +5,7 @@ import styles from './SparkleField.module.css';
 import { useThemeRevealKey } from '@/lib/useThemeRevealKey';
 import { generateSparkles } from '@/lib/generateSparkles';
 
-const SPARKLE_COUNT = 55;
+const SPARKLE_COUNT = 70;
 
 export function SparkleField() {
   const themeKey = useThemeRevealKey();
