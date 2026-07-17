@@ -18,9 +18,9 @@ export function generateSparkles(count: number): SparkleConfig[] {
   for (let i = 0; i < count; i++) {
     const topPct = (i / count) * 100 + seededRandom(i * 3.1) * (100 / count) * 0.6;
     const leftPct = seededRandom(i * 7.7) * 90 + 4;
-    const size = 10 + seededRandom(i * 2.3) * 12;
+    const size = 11 + seededRandom(i * 2.3) * 13;
     const speed = 0.1 + seededRandom(i * 5.9) * 0.32;
-    const delay = seededRandom(i * 4.1) * 0.3;
+    const delay = 3.3 + seededRandom(i * 3.8) * 0.8;
     const color = i % 6;
 
     sparkles.push({

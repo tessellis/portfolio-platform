@@ -5,7 +5,7 @@ import styles from './SparkleField.module.css';
 import { useThemeRevealKey } from '@/lib/useThemeRevealKey';
 import { generateSparkles } from '@/lib/generateSparkles';
 
-const SPARKLE_COUNT = 36;
+const SPARKLE_COUNT = 70;
 
 export function SparkleField() {
   const themeKey = useThemeRevealKey();
@@ -87,10 +87,13 @@ export function SparkleField() {
             }
           >
             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M12 0 L14 10 L24 12 L14 14 L12 24 L10 14 L0 12 L10 10 Z"
-                fill="currentColor"
-              />
+                <path
+                    d="M12 2C12.8 7 15 9.5 21.5 11.8C15.3 12.6 12.8 15 12.2 22C11.3 15.2 9 12.8 2.3 12.2C8.7 11 11 8.5 12 2Z"
+                    stroke="currentColor"
+                    strokeWidth="2.2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                />
             </svg>
           </span>
         </span>

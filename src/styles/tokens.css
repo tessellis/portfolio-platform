@@ -8,7 +8,8 @@
 
 :root {
    /* Hero reveal timing */
-  --hero-header-delay: 1.6s;
+  --hero-header-delay: 3.3s; /* was 3.1s */
+  --icon-neutral: var(--color-text-primary);
   
   /* Colors - Light Mode */
   --color-bg-primary: #faf6ee;
