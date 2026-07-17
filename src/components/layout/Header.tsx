@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import { ThemeToggle } from '@/components/ui/ThemeToggle';
+import { useThemeRevealKey } from '@/lib/useThemeRevealKey';
 import styles from './Header.module.css';
 
 const navLinks = [
@@ -16,12 +17,21 @@ const navLinks = [
 export function Header() {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [hasHero, setHasHero] = useState(false);
+  const themeKey = useThemeRevealKey();
 
   const [prevPathname, setPrevPathname] = useState(pathname);
   if (prevPathname !== pathname) {
     setPrevPathname(pathname);
     if (menuOpen) setMenuOpen(false);
   }
+
+  useEffect(() => {
+    const id = requestAnimationFrame(() => {
+      setHasHero(!!document.querySelector('[data-hero]'));
+    });
+    return () => cancelAnimationFrame(id);
+  }, [pathname]);
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : '';
@@ -31,10 +41,21 @@ export function Header() {
   }, [menuOpen]);
 
   return (
-    <header className={styles.header}>
+    <header
+      key={themeKey}
+      className={`${styles.header} ${hasHero ? styles.delayedReveal : ''}`}
+    >
       <nav className={styles.nav}>
         <Link href="/" className={styles.logo}>
-          yourname
+          {Array.from('tessellis').map((char, i) => (
+            <span
+              key={i}
+              className={styles.logoLetter}
+              style={{ color: `var(--flash-${i % 6})` }}
+            >
+              {char}
+            </span>
+          ))}
         </Link>
 
         <ul className={styles.links}>

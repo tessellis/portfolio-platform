@@ -5,20 +5,22 @@
   background: none;
 }
 
-.transparent {
-  background: none;
-  border-bottom: 1px solid transparent;
-  backdrop-filter: none;
+.delayedReveal {
+  opacity: 0;
+  animation: headerReveal 0.5s ease-out forwards;
+  animation-delay: var(--hero-header-delay);
 }
 
-.solid {
-  background: linear-gradient(
-    180deg,
-    var(--header-solid-bg) 0%,
-    var(--color-bg-primary) 100%
-  );
-  border-bottom: 1px solid var(--color-border);
-  backdrop-filter: blur(8px);
+@keyframes headerReveal {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .delayedReveal {
+    animation: none;
+    opacity: 1;
+  }
 }
 
 .nav {
@@ -31,15 +33,31 @@
 }
 
 .logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
   font-size: var(--text-base);
   font-weight: var(--font-semibold);
   color: var(--color-text-primary);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
   margin-right: auto;
+  font-weight: var(--font-bold);
 }
 
 .logo:hover {
   color: var(--color-text-primary);
+}
+
+.logoLetter {
+  display: inline-block;
+}
+
+.logoIcon {
+  transition: filter var(--transition-fast);
+}
+
+[data-theme="dark"] .logoIcon {
+  filter: invert(1);
 }
 
 /* Desktop nav links — hidden on mobile */

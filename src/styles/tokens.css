@@ -7,10 +7,13 @@
 */
 
 :root {
+   /* Hero reveal timing */
+  --hero-header-delay: 1.6s;
+  
   /* Colors - Light Mode */
-  --color-bg-primary: #ffffff;
-  --color-bg-secondary: #f5f5f3;
-  --color-bg-tertiary: #ebebea;
+  --color-bg-primary: #faf6ee;
+  --color-bg-secondary: #f2ede1;
+  --color-bg-tertiary: #eae3d2;
 
   --color-text-primary: #1a1a1a;
   --color-text-secondary: #4a4a4a;
@@ -20,20 +23,16 @@
   --color-accent-hover: #4338ca;
   --color-accent-subtle: #eef2ff;
 
-  --color-border: #e2e2e0;
-  --color-border-strong: #c4c4c2;
+  --color-border: #e2ddd0;
+  --color-border-strong: #c9c2ae;
 
-  /* Hero mesh gradient — light mode */
-    --gradient-hero: radial-gradient(
-    circle,
-    rgba(238, 174, 202, 1) 0%,
-    rgba(182, 205, 221, 1) 54%,
-    rgba(148, 187, 233, 1) 100%
-  );
-  --gradient-hero-base: #fdfcfb;
-  --header-solid-bg: #fdf6f0;
-  --gradient-hero-base: #fdfcfb;
-  --header-solid-bg: #fdf6f0;
+  /* Hero letter flash-in palette — light mode */
+  --flash-0: #e4572e;
+  --flash-1: #f2b705;
+  --flash-2: #5b9bd5;
+  --flash-3: #d6336c;
+  --flash-4: #2e3a6e;
+  --flash-5: #4fa382;
 
   /* Typography */
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -101,9 +100,9 @@
 
 /* Dark Mode */
 [data-theme="dark"] {
-  --color-bg-primary: #111110;
-  --color-bg-secondary: #1a1a19;
-  --color-bg-tertiary: #242423;
+  --color-bg-primary: #0d0d0c;
+  --color-bg-secondary: #171615;
+  --color-bg-tertiary: #201f1d;
 
   --color-text-primary: #eeeeec;
   --color-text-secondary: #b5b5b3;
@@ -116,16 +115,13 @@
   --color-border: #2e2e2c;
   --color-border-strong: #3f3f3d;
 
-  /* Hero mesh gradient — dark mode */
-  /* Hero circular gradient — dark mode */
-  --gradient-hero: radial-gradient(
-    circle,
-    rgba(214, 92, 42, 1) 0%,
-    rgba(94, 42, 74, 1) 54%,
-    rgba(10, 9, 8, 1) 100%
-  );
-  --gradient-hero-base: #0a0908;
-  --header-solid-bg: #1a1210;
+  /* Hero letter flash-in palette — dark mode */
+  --flash-0: #ff8a5b;
+  --flash-1: #ffd166;
+  --flash-2: #7ec8e3;
+  --flash-3: #f2789f;
+  --flash-4: #8c7ae6;
+  --flash-5: #5fd9a4;
 }
 
 @media (min-width: 640px) {
