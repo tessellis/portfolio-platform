@@ -6,7 +6,7 @@ import { useThemeRevealKey } from '@/lib/useThemeRevealKey';
 import { HeroPuzzleIcon } from './HeroPuzzleIcon';
 
 const name = 'Tess Ellis';
-const eyebrowText = 'Full stack developer & UX engineer';
+const eyebrowText = 'Lead Full-Stack Software Engineer';
 
 export function HeroRevealContent() {
   const themeKey = useThemeRevealKey();

@@ -19,7 +19,7 @@
 .iconWrap {
   flex-shrink: 0;
   width: clamp(120px, 30vw, 200px);
-  margin-bottom: var(--space-);
+  margin-bottom: var(--space-8 );
   overflow: visible;
 }
 
