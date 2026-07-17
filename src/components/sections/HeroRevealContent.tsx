@@ -9,9 +9,10 @@ import { HeroPuzzleIcon } from './HeroPuzzleIcon';
 const name = 'Tess Ellis';
 const eyebrowText = 'Full stack developer & UX engineer';
 const MAX_INTRO_SCALE = 2.1;
-const VIEWPORT_FIT_RATIO = 0.9; // never let the scaled-up text exceed 90% of viewport width
+const VIEWPORT_FIT_RATIO = 0.9;
 const SHRINK_DELAY = 1400;
 const SHRINK_DURATION = 900;
+const COLORIZE_DELAY = 3300; // matches buttons + icon bounce timing
 
 export function HeroRevealContent() {
   const themeKey = useThemeRevealKey();
@@ -29,10 +30,6 @@ export function HeroRevealContent() {
     }
 
     const lastRect = titleEl.getBoundingClientRect();
-
-    // Cap the scale so the "First" (large) state never overflows the viewport,
-    // regardless of screen size — desktop still gets the full dramatic scale,
-    // mobile gets whatever fits.
     const maxAllowedWidth = window.innerWidth * VIEWPORT_FIT_RATIO;
     const fitScale = maxAllowedWidth / lastRect.width;
     const introScale = Math.min(MAX_INTRO_SCALE, fitScale);
@@ -54,7 +51,7 @@ export function HeroRevealContent() {
       transition: 'none',
     });
 
-    const timer = setTimeout(() => {
+    const shrinkTimer = setTimeout(() => {
       requestAnimationFrame(() => {
         setMorphStyle({
           opacity: 1,
@@ -65,7 +62,7 @@ export function HeroRevealContent() {
       });
     }, SHRINK_DELAY);
 
-    return () => clearTimeout(timer);
+    return () => clearTimeout(shrinkTimer);
   }, [themeKey]);
 
   return (
@@ -105,6 +102,7 @@ export function HeroRevealContent() {
                     {
                       '--flash-color': `var(--flash-${i % 6})`,
                       '--delay': `${i * 55}ms`,
+                      '--colorize-delay': `${COLORIZE_DELAY + i * 45}ms`,
                     } as React.CSSProperties
                   }
                 >

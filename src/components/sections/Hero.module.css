@@ -88,14 +88,22 @@
   display: inline-block;
   color: var(--flash-color);
   opacity: 0;
-  animation: letterSettle 0.9s ease-out forwards;
-  animation-delay: var(--delay, 0ms);
+  animation:
+    letterSettle 0.9s ease-out forwards,
+    letterWipeIn 0.5s ease-out forwards;
+  animation-delay: var(--delay, 0ms), var(--colorize-delay, 999s);
 }
 
 @keyframes letterSettle {
   0% { opacity: 0; transform: translateY(10px); color: var(--flash-color); }
   45% { opacity: 1; transform: translateY(0); color: var(--flash-color); }
   100% { opacity: 1; transform: translateY(0); color: var(--color-text-primary); }
+}
+
+@keyframes letterWipeIn {
+  0% { color: var(--color-text-primary); }
+  60% { color: var(--flash-color); }
+  100% { color: var(--flash-color); }
 }
 
 .space {
@@ -183,7 +191,7 @@
   }
 
   .letter {
-    color: var(--color-text-primary);
+    color: var(--flash-color);
   }
 
   .titleBlock {
