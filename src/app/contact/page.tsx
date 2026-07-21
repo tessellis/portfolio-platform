@@ -2,9 +2,9 @@ import { ContactForm } from '@/components/sections/ContactForm';
 import styles from './page.module.css';
 
 const links = [
-  { label: 'Email', value: 'you@email.com', href: 'mailto:you@email.com' },
-  { label: 'GitHub', value: 'github.com/yourusername', href: 'https://github.com/yourusername' },
-  { label: 'LinkedIn', value: 'linkedin.com/in/yourusername', href: 'https://linkedin.com/in/yourusername' },
+  { label: 'Email', value: 'my@email.com', href: 'mailto:my@email.com' },
+  { label: 'GitHub', value: 'github.com/myusername', href: 'https://github.com/myusername' },
+  { label: 'LinkedIn', value: 'linkedin.com/in/myusername', href: 'https://linkedin.com/in/myusername' },
 ];
 
 export default function Contact() {
