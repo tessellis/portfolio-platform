@@ -2,8 +2,8 @@ import Link from 'next/link';
 import styles from './Footer.module.css';
 
 const socialLinks = [
-  { label: 'GitHub', href: 'https://github.com/yourusername' },
-  { label: 'LinkedIn', href: 'https://linkedin.com/in/yourusername' },
+  { label: 'GitHub', href: 'https://github.com/myusername' },
+  { label: 'LinkedIn', href: 'https://linkedin.com/in/myusername' },
   { label: 'Resume', href: '/resume.pdf' },
 ];
 
@@ -12,7 +12,7 @@ export function Footer() {
     <footer className={styles.footer}>
       <div className={styles.inner}>
         <p className={styles.copy}>
-          © {new Date().getFullYear()} Your Name
+          © {new Date().getFullYear()} Tess Ellis
         </p>
         <ul className={styles.links}>
           {socialLinks.map(({ label, href }) => (

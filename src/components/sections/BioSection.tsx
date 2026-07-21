@@ -12,13 +12,13 @@ export function BioSection() {
             software engineering, and what kind of problems you like solving.
           </p>
           <p>
-            Placeholder second paragraph. More about your approach to
+            Placeholder second paragraph. More about my approach to
             building things — the intersection of design and engineering,
             attention to detail, whatever is true and specific to you.
           </p>
           <p>
             Placeholder third paragraph. A more personal note — interests
-            outside of code, what youre up to now, what youre looking for next.
+            outside of code, what I am up to now, what I am looking for next.
           </p>
         </div>
       </div>

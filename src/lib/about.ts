@@ -30,7 +30,7 @@ export const experience: ExperienceEntry[] = [
     role: 'Placeholder Role',
     org: 'Placeholder Company',
     dates: '2024 — 2025',
-    summary: 'One-line summary of what you did in this role.',
+    summary: 'One-line summary of what I did in this role.',
     bullets: [
       'Placeholder accomplishment one',
       'Placeholder accomplishment two',
