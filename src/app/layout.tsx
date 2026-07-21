@@ -20,8 +20,8 @@ const bungee = Bungee({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Your Name — Full Stack Developer',
-    template: '%s | Your Name',
+    default: 'Tess Ellis — Full Stack Developer',
+    template: '%s | Tess Ellis',
   },
   description: 'Full stack developer and UX engineer based in Portland, OR.',
 };
