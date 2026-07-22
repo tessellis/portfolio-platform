@@ -3,8 +3,7 @@ The visual system for this project is hand-built. I decided to work with a token
 ## Live Demo
 
 [Portfolio Site](https://www.ellistess.com/)
-
-This is a Next.js project bootstrapped with `create-next-app` 
+Note to prof: In scaffolding phase -- Case studies and project still need to be added
 
 ## Dev
 
