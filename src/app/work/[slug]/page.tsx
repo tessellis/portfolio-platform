@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { getAllWorkSlugs, getWorkBySlug, getAllWork } from '@/lib/mdx';
 import { MDXContent } from '@/components/mdx/MDXContent';
 import styles from './page.module.css';
+import Image from 'next/image';
 
 export function generateStaticParams() {
   return getAllWorkSlugs().map((slug) => ({ slug }));
@@ -73,7 +74,19 @@ export default async function CaseStudy({
           </div>
         </div>
 
-        <div className={styles.heroImage} />
+        {project.frontmatter.heroImage ? (
+          <div className={styles.heroImageWrap}>
+            <Image
+              src={project.frontmatter.heroImage}
+              alt={project.frontmatter.title}
+              fill
+              className={styles.heroImage}
+              priority
+            />
+          </div>
+        ) : (
+          <div className={styles.heroImagePlaceholder} />
+        )}
 
         <MDXContent source={project.content} />
 

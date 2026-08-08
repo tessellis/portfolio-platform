@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { getFeaturedProjects } from '@/lib/projects';
 import styles from './FeaturedWork.module.css';
+import Image from 'next/image';
 
 export function FeaturedWork() {
   const featuredProjects = getFeaturedProjects();
@@ -22,7 +23,18 @@ export function FeaturedWork() {
               href={`/work/${project.slug}`}
               className={`${styles.card} ${index === 0 ? styles.featuredCard : ''}`}
             >
-              <div className={styles.thumbnail} />
+              {project.frontmatter.heroImage ? (
+        <div className={styles.thumbnailWrap}>
+          <Image
+            src={project.frontmatter.heroImage}
+            alt={project.frontmatter.title}
+            fill
+            className={styles.thumbnail}
+          />
+        </div>
+      ) : (
+        <div className={styles.thumbnailPlaceholder} />
+      )}
               <div className={styles.cardContent}>
                 <h3>{project.frontmatter.title}</h3>
                 <p>{project.frontmatter.description}</p>
