@@ -22,7 +22,6 @@
   color: var(--color-text-primary);
 }
 
-/* Mobile: single column stack */
 .bento {
   display: grid;
   grid-template-columns: 1fr;
@@ -43,7 +42,17 @@
   transform: translateY(-2px);
 }
 
+.thumbnailWrap {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
 .thumbnail {
+  object-fit: cover;
+}
+
+.thumbnailPlaceholder {
   aspect-ratio: 16 / 9;
   background-color: var(--color-bg-tertiary);
 }
@@ -79,34 +88,35 @@
   padding: var(--space-1) var(--space-3);
 }
 
-/* Tablet and up: bento asymmetry kicks in */
-@media (min-width: 640px) {
-  .bento {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .featuredCard {
-    grid-column: span 2;
-  }
-
-  .featuredCard .thumbnail {
-    aspect-ratio: 21 / 9;
-  }
-}
-
+/* Desktop: primary + secondary fill the row together, no empty tracks possible */
 @media (min-width: 1024px) {
   .bento {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 2fr 1fr;
+    align-items: stretch;
   }
 
-  .featuredCard {
-    grid-column: span 2;
-    grid-row: span 2;
-  }
+.primaryCard .thumbnailWrap,
+.secondaryCard .thumbnailWrap {
+  aspect-ratio: 16 / 9;
+  height: auto;
+  min-height: 0;
+}
 
-  .featuredCard .thumbnail {
+  .secondaryCard .thumbnailWrap {
     aspect-ratio: auto;
     height: 100%;
-    min-height: 220px;
+    min-height: 200px;
+  }
+
+  .secondaryCard .cardContent h3 {
+    font-size: var(--text-lg);
+  }
+
+  .secondaryCard .cardContent p {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
   }
 }

@@ -1,9 +1,11 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { getFeaturedProjects } from '@/lib/projects';
 import styles from './FeaturedWork.module.css';
 
 export function FeaturedWork() {
   const featuredProjects = getFeaturedProjects();
+  const [primary, secondary] = featuredProjects;
 
   return (
     <section className={`${styles.work} section`}>
@@ -16,18 +18,28 @@ export function FeaturedWork() {
         </div>
 
         <div className={styles.bento}>
-          {featuredProjects.map((project, index) => (
+          {primary && (
             <Link
-              key={project.slug}
-              href={`/work/${project.slug}`}
-              className={`${styles.card} ${index === 0 ? styles.featuredCard : ''}`}
+              href={`/work/${primary.slug}`}
+              className={`${styles.card} ${styles.primaryCard}`}
             >
-              <div className={styles.thumbnail} />
+              {primary.frontmatter.heroImage ? (
+                <div className={styles.thumbnailWrap}>
+                  <Image
+                    src={primary.frontmatter.heroImage}
+                    alt={primary.frontmatter.title}
+                    fill
+                    className={styles.thumbnail}
+                  />
+                </div>
+              ) : (
+                <div className={styles.thumbnailPlaceholder} />
+              )}
               <div className={styles.cardContent}>
-                <h3>{project.frontmatter.title}</h3>
-                <p>{project.frontmatter.description}</p>
+                <h3>{primary.frontmatter.title}</h3>
+                <p>{primary.frontmatter.description}</p>
                 <div className={styles.tags}>
-                  {project.frontmatter.tags.map((tag) => (
+                  {primary.frontmatter.tags.map((tag) => (
                     <span key={tag} className={styles.tag}>
                       {tag}
                     </span>
@@ -35,7 +47,38 @@ export function FeaturedWork() {
                 </div>
               </div>
             </Link>
-          ))}
+          )}
+
+          {secondary && (
+            <Link
+              href={`/work/${secondary.slug}`}
+              className={`${styles.card} ${styles.secondaryCard}`}
+            >
+              {secondary.frontmatter.heroImage ? (
+                <div className={styles.thumbnailWrap}>
+                  <Image
+                    src={secondary.frontmatter.heroImage}
+                    alt={secondary.frontmatter.title}
+                    fill
+                    className={styles.thumbnail}
+                  />
+                </div>
+              ) : (
+                <div className={styles.thumbnailPlaceholder} />
+              )}
+              <div className={styles.cardContent}>
+                <h3>{secondary.frontmatter.title}</h3>
+                <p>{secondary.frontmatter.description}</p>
+                <div className={styles.tags}>
+                  {secondary.frontmatter.tags.slice(0, 2).map((tag) => (
+                    <span key={tag} className={styles.tag}>
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </Link>
+          )}
         </div>
       </div>
     </section>

@@ -63,14 +63,27 @@
   padding: var(--space-1) var(--space-3);
 }
 
+.heroImageWrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-bottom: var(--space-12);
+  max-width: 900px;
+}
+
 .heroImage {
+  object-fit: cover;
+}
+
+.heroImagePlaceholder {
   width: 100%;
   aspect-ratio: 16 / 9;
   background-color: var(--color-bg-tertiary);
   border-radius: var(--radius-lg);
   margin-bottom: var(--space-12);
-  max-width:  1150px;
-  max-height: 400px;
+  max-width: 900px;
 }
 
 .projectNav {

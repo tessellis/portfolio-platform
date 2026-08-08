@@ -9,6 +9,7 @@ const blogDirectory = path.join(process.cwd(), 'src/content/blog');
 export interface WorkFrontmatter {
   title: string;
   description: string;
+  heroImage?: string;
   tags: string[];
   categories: string[];
   role: string;
