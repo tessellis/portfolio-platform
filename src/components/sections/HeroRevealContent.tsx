@@ -1,6 +1,6 @@
 'use client';
 
-import { useLayoutEffect, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import styles from './Hero.module.css';
 import { useThemeRevealKey } from '@/lib/useThemeRevealKey';
@@ -14,10 +14,31 @@ const SHRINK_DELAY = 1400;
 const SHRINK_DURATION = 900;
 const COLORIZE_DELAY = 3300; // matches buttons + icon bounce timing
 
+
 export function HeroRevealContent() {
   const themeKey = useThemeRevealKey();
   const titleRef = useRef<HTMLDivElement>(null);
   const [morphStyle, setMorphStyle] = useState<React.CSSProperties>({ opacity: 0 });
+  const SCROLL_LOCK_DURATION = 3300;
+
+  useEffect(() => {
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReduced) return;
+
+  document.documentElement.style.overflow = 'hidden';
+  document.body.style.overflow = 'hidden';
+
+  const timer = setTimeout(() => {
+    document.documentElement.style.overflow = '';
+    document.body.style.overflow = '';
+  }, SCROLL_LOCK_DURATION);
+
+  return () => {
+    clearTimeout(timer);
+    document.documentElement.style.overflow = '';
+    document.body.style.overflow = '';
+  };
+  }, [themeKey]);
 
   useLayoutEffect(() => {
     const titleEl = titleRef.current;
