@@ -23,10 +23,17 @@ export function HeroRevealContent() {
     const titleEl = titleRef.current;
     if (!titleEl) return;
 
+    let frameId: number | null = null;
+
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReduced) {
-      setMorphStyle({ opacity: 1, transform: 'none' });
-      return;
+      frameId = requestAnimationFrame(() => {
+        setMorphStyle({ opacity: 1, transform: 'none' });
+      });
+
+      return () => {
+        if (frameId !== null) cancelAnimationFrame(frameId);
+      };
     }
 
     const lastRect = titleEl.getBoundingClientRect();
@@ -44,11 +51,13 @@ export function HeroRevealContent() {
     const dx = firstLeft - lastRect.left;
     const dy = firstTop - lastRect.top;
 
-    setMorphStyle({
-      opacity: 1,
-      transform: `translate(${dx}px, ${dy}px) scale(${introScale})`,
-      transformOrigin: 'top left',
-      transition: 'none',
+    frameId = requestAnimationFrame(() => {
+      setMorphStyle({
+        opacity: 1,
+        transform: `translate(${dx}px, ${dy}px) scale(${introScale})`,
+        transformOrigin: 'top left',
+        transition: 'none',
+      });
     });
 
     const shrinkTimer = setTimeout(() => {
@@ -62,7 +71,10 @@ export function HeroRevealContent() {
       });
     }, SHRINK_DELAY);
 
-    return () => clearTimeout(shrinkTimer);
+    return () => {
+      clearTimeout(shrinkTimer);
+      if (frameId !== null) cancelAnimationFrame(frameId);
+    };
   }, [themeKey]);
 
   return (
