@@ -58,6 +58,12 @@ code, pre {
   padding-block: var(--section-padding-y);
 }
 
+img {
+  -webkit-user-drag: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
 .site-wrapper {
   position: relative;
 }
