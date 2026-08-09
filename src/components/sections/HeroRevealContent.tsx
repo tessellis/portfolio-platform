@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { useLayoutEffect, useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import styles from './Hero.module.css';
 import { useThemeRevealKey } from '@/lib/useThemeRevealKey';
@@ -12,49 +12,54 @@ const MAX_INTRO_SCALE = 2.1;
 const VIEWPORT_FIT_RATIO = 0.9;
 const SHRINK_DELAY = 1400;
 const SHRINK_DURATION = 900;
-const COLORIZE_DELAY = 3300; // matches buttons + icon bounce timing
-
+const SCROLL_LOCK_DURATION = 3300; // match your current icon-bounce/buttons sync point
 
 export function HeroRevealContent() {
   const themeKey = useThemeRevealKey();
   const titleRef = useRef<HTMLDivElement>(null);
   const [morphStyle, setMorphStyle] = useState<React.CSSProperties>({ opacity: 0 });
-  const SCROLL_LOCK_DURATION = 3300;
 
+  // Always land at the top of the page before the reveal plays — both on
+  // first load and whenever the theme toggle forces a remount mid-scroll.
+  useLayoutEffect(() => {
+    if (typeof window === 'undefined') return;
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+  }, [themeKey]);
+
+  // Lock scroll for the duration of the reveal so the user can't jump away
+  // mid-animation and see it settle in a weird position.
   useEffect(() => {
-  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (prefersReduced) return;
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReduced) return;
 
-  document.documentElement.style.overflow = 'hidden';
-  document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden';
 
-  const timer = setTimeout(() => {
-    document.documentElement.style.overflow = '';
-    document.body.style.overflow = '';
-  }, SCROLL_LOCK_DURATION);
+    const timer = setTimeout(() => {
+      document.documentElement.style.overflow = '';
+      document.body.style.overflow = '';
+    }, SCROLL_LOCK_DURATION);
 
-  return () => {
-    clearTimeout(timer);
-    document.documentElement.style.overflow = '';
-    document.body.style.overflow = '';
-  };
+    return () => {
+      clearTimeout(timer);
+      document.documentElement.style.overflow = '';
+      document.body.style.overflow = '';
+    };
   }, [themeKey]);
 
   useLayoutEffect(() => {
     const titleEl = titleRef.current;
     if (!titleEl) return;
 
-    let frameId: number | null = null;
-
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReduced) {
-      frameId = requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
         setMorphStyle({ opacity: 1, transform: 'none' });
       });
-
-      return () => {
-        if (frameId !== null) cancelAnimationFrame(frameId);
-      };
+      return;
     }
 
     const lastRect = titleEl.getBoundingClientRect();
@@ -72,13 +77,11 @@ export function HeroRevealContent() {
     const dx = firstLeft - lastRect.left;
     const dy = firstTop - lastRect.top;
 
-    frameId = requestAnimationFrame(() => {
-      setMorphStyle({
-        opacity: 1,
-        transform: `translate(${dx}px, ${dy}px) scale(${introScale})`,
-        transformOrigin: 'top left',
-        transition: 'none',
-      });
+    setMorphStyle({
+      opacity: 1,
+      transform: `translate(${dx}px, ${dy}px) scale(${introScale})`,
+      transformOrigin: 'top left',
+      transition: 'none',
     });
 
     const shrinkTimer = setTimeout(() => {
@@ -92,10 +95,7 @@ export function HeroRevealContent() {
       });
     }, SHRINK_DELAY);
 
-    return () => {
-      clearTimeout(shrinkTimer);
-      if (frameId !== null) cancelAnimationFrame(frameId);
-    };
+    return () => clearTimeout(shrinkTimer);
   }, [themeKey]);
 
   return (
@@ -135,7 +135,7 @@ export function HeroRevealContent() {
                     {
                       '--flash-color': `var(--flash-${i % 6})`,
                       '--delay': `${i * 55}ms`,
-                      '--colorize-delay': `${COLORIZE_DELAY + i * 45}ms`,
+                      '--colorize-delay': `${3200 + i * 45}ms`,
                     } as React.CSSProperties
                   }
                 >

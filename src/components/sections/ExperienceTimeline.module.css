@@ -1,3 +1,7 @@
+.panel {
+  padding: var(--space-8);
+}
+
 .header {
   display: flex;
   align-items: baseline;

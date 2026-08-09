@@ -19,7 +19,7 @@ const experience = [
 export function ExperienceTimeline() {
   return (
     <section className={`${styles.experience} section`}>
-      <div className="container">
+      <div className={`container glass-panel ${styles.panel}`}>
         <div className={styles.header}>
           <h2>Experience</h2>
           <Link href="/about" className={styles.viewAll}>

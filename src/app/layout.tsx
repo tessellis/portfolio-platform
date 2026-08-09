@@ -6,6 +6,7 @@ import { Footer } from '@/components/layout/Footer';
 import { SparkleField } from '@/components/layout/SparkleField';
 import '@/styles/global.css';
 import '@/styles/typography.css';
+import { GlassFilters } from '@/components/layout/GlassFilters';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -34,6 +35,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.variable} ${bungee.variable}`}>
+        <GlassFilters />
         <div className="page-grain" />
         <ThemeProvider>
           <div className="site-wrapper">

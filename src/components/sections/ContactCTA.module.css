@@ -1,5 +1,5 @@
-.cta {
-  background-color: none;
+.panel {
+  padding: var(--space-8);
 }
 
 .inner {

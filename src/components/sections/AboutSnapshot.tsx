@@ -4,7 +4,7 @@ import styles from './AboutSnapshot.module.css';
 export function AboutSnapshot() {
   return (
     <section className={`${styles.about} section`}>
-      <div className={`container ${styles.grid}`}>
+      <div className={`container ${styles.grid} glass-panel ${styles.panel}`}>
         <div className={styles.text}>
           <h2>About me</h2>
           <p>

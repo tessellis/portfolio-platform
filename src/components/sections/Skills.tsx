@@ -22,7 +22,7 @@ const skillGroups = [
 export function Skills() {
   return (
     <section className={`${styles.skills} section`}>
-      <div className="container">
+      <div className={`container glass-panel ${styles.panel}`}>
         <h2>Skills & stack</h2>
         <div className={styles.grid}>
           {skillGroups.map((group) => (

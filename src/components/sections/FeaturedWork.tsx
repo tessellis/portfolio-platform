@@ -21,7 +21,7 @@ export function FeaturedWork() {
           {primary && (
             <Link
               href={`/work/${primary.slug}`}
-              className={`${styles.card} ${styles.primaryCard}`}
+              className={`${styles.card} ${styles.primaryCard} glass-panel`}
             >
               {primary.frontmatter.heroImage ? (
                 <div className={styles.thumbnailWrap}>
@@ -52,7 +52,7 @@ export function FeaturedWork() {
           {secondary && (
             <Link
               href={`/work/${secondary.slug}`}
-              className={`${styles.card} ${styles.secondaryCard}`}
+              className={`${styles.card} ${styles.secondaryCard} glass-panel`}
             >
               {secondary.frontmatter.heroImage ? (
                 <div className={styles.thumbnailWrap}>
