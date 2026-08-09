@@ -14,6 +14,18 @@ const experience = [
     dates: '2024 — 2025',
     summary: 'One-line summary of what you did in this role.',
   },
+  {
+    role: 'Placeholder Role',
+    org: 'Placeholder Company',
+    dates: '2024 — 2025',
+    summary: 'One-line summary of what you did in this role.',
+  },
+  {
+    role: 'Placeholder Role',
+    org: 'Placeholder Company',
+    dates: '2024 — 2025',
+    summary: 'One-line summary of what you did in this role.',
+  },
 ];
 
 export function ExperienceTimeline() {
