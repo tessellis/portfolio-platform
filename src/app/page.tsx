@@ -1,17 +1,15 @@
 import { Hero } from '@/components/sections/Hero';
 import { FeaturedWork } from '@/components/sections/FeaturedWork';
-import { Skills } from '@/components/sections/Skills';
 import { AboutSnapshot } from '@/components/sections/AboutSnapshot';
-import { ExperienceTimeline } from '@/components/sections/ExperienceTimeline';
 import { ContactCTA } from '@/components/sections/ContactCTA';
+import { ExperienceSkillsPanel } from '@/components/sections/ExperienceSkillsPanel';
 
 export default function Home() {
   return (
     <>
       <Hero />
       <FeaturedWork />
-      <ExperienceTimeline />
-      <Skills />
+      <ExperienceSkillsPanel />
       <AboutSnapshot />
       <ContactCTA />
     </>

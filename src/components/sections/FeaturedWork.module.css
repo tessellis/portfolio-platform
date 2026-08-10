@@ -1,3 +1,21 @@
+.work {
+  position: relative;
+  background-color: color-mix(in srgb, var(--flash-5) 20%, transparent);
+  padding-block: var(--space-24);
+  overflow: visible;
+}
+
+.wave {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 48px;
+  transform: translateY(calc(-100%));
+  fill: color-mix(in srgb, var(--flash-5) 20%, transparent);
+  pointer-events: none;
+}
+
 .header {
   display: flex;
   align-items: baseline;
@@ -26,6 +44,23 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space-4);
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  touch-action: pan-y;
+}
+
+.inView {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.inView .primaryCard {
+  transition-delay: 0.1s;
+}
+
+.inView .secondaryCard {
+  transition-delay: 0.25s;
 }
 
 .card {
@@ -33,6 +68,7 @@
   flex-direction: column;
   overflow: hidden;
   transition: transform var(--transition-fast);
+  touch-action: pan-y;
 }
 
 .card:hover {
