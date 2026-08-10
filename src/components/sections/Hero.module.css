@@ -56,10 +56,11 @@
 .headline {
   font-family: var(--font-heading);
   font-weight: var(--font-normal);
-  font-size: clamp(4.5rem, 2.5rem + 8vw, 8rem);
+  font-size: clamp(3rem, 2rem + 6vw, 6.5rem);
   letter-spacing: -0.02em;
   line-height: 1.05;
   margin-bottom: var(--space-8);
+  white-space: nowrap;
 }
 
 .letter {
