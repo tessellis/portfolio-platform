@@ -4,23 +4,21 @@ import { useLayoutEffect, useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import styles from './Hero.module.css';
 import { useThemeRevealKey } from '@/lib/useThemeRevealKey';
-import { HeroPuzzleIcon } from './HeroPuzzleIcon';
 
-const name = 'Tess Ellis';
+const name = 'TESS ELLIS';
 const eyebrowText = 'Full stack developer & UX engineer';
 const MAX_INTRO_SCALE = 2.1;
 const VIEWPORT_FIT_RATIO = 0.9;
 const SHRINK_DELAY = 1400;
 const SHRINK_DURATION = 900;
-const SCROLL_LOCK_DURATION = 3300; // match your current icon-bounce/buttons sync point
+const SCROLL_LOCK_DURATION = 3300;
+const COLORIZE_DELAY = 2700;
 
 export function HeroRevealContent() {
   const themeKey = useThemeRevealKey();
   const titleRef = useRef<HTMLDivElement>(null);
   const [morphStyle, setMorphStyle] = useState<React.CSSProperties>({ opacity: 0 });
 
-  // Always land at the top of the page before the reveal plays — both on
-  // first load and whenever the theme toggle forces a remount mid-scroll.
   useLayoutEffect(() => {
     if (typeof window === 'undefined') return;
     if ('scrollRestoration' in window.history) {
@@ -29,8 +27,6 @@ export function HeroRevealContent() {
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
   }, [themeKey]);
 
-  // Lock scroll for the duration of the reveal so the user can't jump away
-  // mid-animation and see it settle in a weird position.
   useEffect(() => {
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReduced) return;
@@ -100,10 +96,6 @@ export function HeroRevealContent() {
 
   return (
     <div key={themeKey} className={`container ${styles.contentRow}`}>
-      <div className={styles.iconWrap}>
-        <HeroPuzzleIcon />
-      </div>
-
       <div className={styles.content}>
         <div ref={titleRef} className={styles.titleBlock} style={morphStyle}>
           <p className={styles.eyebrow}>
@@ -135,7 +127,7 @@ export function HeroRevealContent() {
                     {
                       '--flash-color': `var(--flash-${i % 6})`,
                       '--delay': `${i * 55}ms`,
-                      '--colorize-delay': `${3200 + i * 45}ms`,
+                      '--colorize-delay': `${COLORIZE_DELAY + i * 45}ms`,
                     } as React.CSSProperties
                   }
                 >

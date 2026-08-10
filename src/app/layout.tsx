@@ -4,9 +4,9 @@ import { ThemeProvider } from '@/components/layout/ThemeProvider';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { SparkleField } from '@/components/layout/SparkleField';
+import { GlassFilters } from '@/components/layout/GlassFilters';
 import '@/styles/global.css';
 import '@/styles/typography.css';
-import { GlassFilters } from '@/components/layout/GlassFilters';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     default: 'Tess Ellis — Full Stack Developer',
     template: '%s | Tess Ellis',
   },
-  description: 'Full stack developer and UX engineer based in Portland, OR.',
+  description: 'Full stack developer and UX engineer.',
 };
 
 export default function RootLayout({
@@ -35,8 +35,8 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.variable} ${bungee.variable}`}>
-        <GlassFilters />
         <div className="page-grain" />
+        <GlassFilters />
         <ThemeProvider>
           <div className="site-wrapper">
             <SparkleField />
