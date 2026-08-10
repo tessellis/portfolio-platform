@@ -12,7 +12,7 @@ const VIEWPORT_FIT_RATIO = 0.9;
 const SHRINK_DELAY = 1400;
 const SHRINK_DURATION = 900;
 const SCROLL_LOCK_DURATION = 3300;
-const COLORIZE_DELAY = 2700;
+const COLORIZE_DELAY = 3000;
 
 export function HeroRevealContent() {
   const themeKey = useThemeRevealKey();
@@ -127,7 +127,7 @@ export function HeroRevealContent() {
                     {
                       '--flash-color': `var(--flash-${i % 6})`,
                       '--delay': `${i * 55}ms`,
-                      '--colorize-delay': `${COLORIZE_DELAY + i * 45}ms`,
+                      '--colorize-delay': `${COLORIZE_DELAY + i * 60}ms`,
                     } as React.CSSProperties
                   }
                 >
