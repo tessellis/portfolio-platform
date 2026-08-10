@@ -1,5 +1,21 @@
 .panel {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  background-color: color-mix(in srgb, var(--panel-accent) var(--panel-tint), transparent);
+  padding-block: var(--space-16);
+  touch-action: pan-y;
+}
+
+.card {
+  background-color: var(--color-bg-primary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
   padding: var(--space-8);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .grid {
@@ -28,7 +44,7 @@
 
 .visual {
   aspect-ratio: 4 / 3;
-  background-color: var(--color-bg-tertiary);
+  background-color: color-mix(in srgb, var(--flash-1) 24%, transparent);
   border-radius: var(--radius-lg);
   order: -1;
 }

@@ -35,7 +35,6 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.variable} ${bungee.variable}`}>
-        <div className="page-grain" />
         <GlassFilters />
         <ThemeProvider>
           <div className="site-wrapper">

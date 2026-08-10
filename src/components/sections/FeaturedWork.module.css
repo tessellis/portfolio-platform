@@ -1,7 +1,11 @@
 .work {
   position: relative;
-  background-color: color-mix(in srgb, var(--flash-5) 20%, transparent);
-  padding-block: var(--space-24);
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  background-color: color-mix(in srgb, var(--panel-accent) var(--panel-tint), transparent);
+  padding-block: var(--space-16);
   overflow: visible;
 }
 
@@ -10,9 +14,9 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 48px;
+  height: 85px;
   transform: translateY(calc(-100%));
-  fill: color-mix(in srgb, var(--flash-5) 20%, transparent);
+  fill: color-mix(in srgb, var(--panel-accent) var(--panel-tint), transparent);
   pointer-events: none;
 }
 
@@ -44,24 +48,9 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space-4);
-  opacity: 0;
-  transform: translateY(32px);
-  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
   touch-action: pan-y;
 }
 
-.inView {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.inView .primaryCard {
-  transition-delay: 0.1s;
-}
-
-.inView .secondaryCard {
-  transition-delay: 0.25s;
-}
 
 .card {
   display: flex;
@@ -79,6 +68,7 @@
   position: relative;
   aspect-ratio: 16 / 9;
   overflow: hidden;
+  background-color: var(--color-bg-primary);
 }
 
 .thumbnail {
@@ -91,6 +81,7 @@
 }
 
 .cardContent {
+  background-color: var(--color-bg-primary);
   padding: var(--space-6);
   display: flex;
   flex-direction: column;

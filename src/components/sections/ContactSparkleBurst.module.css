@@ -1,0 +1,33 @@
+.field {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sparkle {
+  position: absolute;
+  color: var(--flash-color);
+  opacity: 0;
+  transform: translate(0, 0) scale(0.4);
+}
+
+.sparkle.active {
+  animation: burstOut 0.6s ease-out forwards;
+}
+
+@keyframes burstOut {
+  0% { opacity: 0; transform: translate(0, 0) scale(0.3); }
+  60% { opacity: 0.9; }
+  100% { opacity: 0.7; transform: translate(var(--tx), var(--ty)) scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sparkle.active {
+    animation: none;
+    opacity: 0.7;
+    transform: translate(var(--tx), var(--ty)) scale(1);
+  }
+}

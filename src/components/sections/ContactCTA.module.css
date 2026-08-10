@@ -1,8 +1,21 @@
 .panel {
-  padding: var(--space-8);
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  background-color: color-mix(in srgb, var(--panel-accent) var(--panel-tint), transparent);
+  padding-block: var(--space-16);
+  touch-action: pan-y;
 }
 
-.inner {
+.card {
+  background-color: var(--color-bg-primary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-16) var(--space-8);
+  width: 100%;
+  box-sizing: border-box;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -10,11 +23,17 @@
   gap: var(--space-4);
 }
 
-.inner h2 {
+.iconWrap {
+  position: relative;
+  width: 100px;
+  margin-bottom: var(--space-4);
+}
+
+.card h2 {
   font-size: var(--text-3xl);
 }
 
-.inner p {
+.card p {
   color: var(--color-text-secondary);
 }
 
@@ -36,4 +55,26 @@
 .button:hover {
   background-color: var(--color-text-secondary);
   color: var(--color-bg-primary);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+
+.chip {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  padding: var(--space-2) var(--space-5);
+  transition: color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.chip:hover {
+  color: var(--color-text-primary);
+  border-color: var(--color-border-strong);
 }

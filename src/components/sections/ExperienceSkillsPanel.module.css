@@ -1,36 +1,30 @@
 .panel {
-  display: grid;
-  grid-template-columns: 1fr;
-}
-
-.half {
   position: relative;
-  padding-block: var(--space-24);
-  background-color: color-mix(in srgb, var(--flash-1) 20%, transparent);
-  opacity: 0;
-  transform: translateY(32px);
-  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  background-color: color-mix(in srgb, var(--panel-accent) var(--panel-tint), transparent);
+  padding-block: var(--space-16);
   touch-action: pan-y;
 }
-
-.halfSkills {
-  background-color: color-mix(in srgb, var(--flash-2) 20%, transparent);
+.grid2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+  width: 100%;
 }
 
-.inView .half {
-  opacity: 1;
-  transform: translateY(0);
+.card {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: var(--color-bg-primary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
 }
 
-.inView .halfSkills {
-  transition-delay: 0.15s;
-}
-
-.halfInner {
-  height: 100%;
-}
-
-/* ===== Experience side ===== */
+/* ===== Experience card ===== */
 
 .header {
   display: flex;
@@ -59,7 +53,7 @@
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: var(--space-8);
+  gap: var(--space-6);
   border-left: 2px solid var(--color-border);
   padding-left: var(--space-6);
 }
@@ -107,14 +101,14 @@
   margin-top: var(--space-2);
 }
 
-/* ===== Skills side ===== */
+/* ===== Skills card ===== */
 
-.halfSkills h2 {
+.cardSkills h2 {
   font-size: var(--text-3xl);
   margin-bottom: var(--space-8);
 }
 
-.grid {
+.skillsGrid {
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space-6);
@@ -144,15 +138,7 @@
 }
 
 @media (min-width: 640px) {
-  .grid {
+  .skillsGrid {
     grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* ===== Desktop: side-by-side 50/50 ===== */
-
-@media (min-width: 1024px) {
-  .panel {
-    grid-template-columns: 1fr 1fr;
   }
 }

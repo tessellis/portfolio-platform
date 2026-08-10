@@ -31,8 +31,8 @@ export function ExperienceSkillsPanel() {
 
   return (
     <section ref={ref} className={`${styles.panel} ${inView ? styles.inView : ''}`}>
-      <div className={styles.half}>
-        <div className={`container ${styles.halfInner}`}>
+      <div className={`container ${styles.grid2}`}>
+        <div className={styles.card}>
           <div className={styles.header}>
             <h2>Experience</h2>
             <Link href="/about" className={styles.viewAll}>
@@ -44,7 +44,7 @@ export function ExperienceSkillsPanel() {
             {experience.map((item) => (
               <li key={item.role} className={styles.item}>
                 <div className={styles.dot} />
-                <div className={styles.itemContent}>
+                <div>
                   <div className={styles.itemHeader}>
                     <h3>{item.role}</h3>
                     <span className={styles.dates}>{item.dates}</span>
@@ -56,12 +56,10 @@ export function ExperienceSkillsPanel() {
             ))}
           </ol>
         </div>
-      </div>
 
-      <div className={`${styles.half} ${styles.halfSkills}`}>
-        <div className={`container ${styles.halfInner}`}>
+        <div className={`${styles.card} ${styles.cardSkills}`}>
           <h2>Skills & stack</h2>
-          <div className={styles.grid}>
+          <div className={styles.skillsGrid}>
             {skillGroups.map((group) => (
               <div key={group.category} className={styles.group}>
                 <h3 className={styles.groupTitle}>{group.category}</h3>
