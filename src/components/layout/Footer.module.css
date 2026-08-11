@@ -1,6 +1,6 @@
-.footer {
-  margin-top: var(--space-32); /* or similar large value */
-}
+/* .footer {
+  margin-top: var(--space-32); or similar large value
+} */
 
 .inner {
   max-width: var(--max-width-wide);

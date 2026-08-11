@@ -1,6 +1,8 @@
+/* ContactCTA.module.css */
 .panel {
   position: relative;
-  padding-block: var(--space-16);
+  padding-top: calc(var(--space-32) + var(--space-12)); /* 11rem: ~48px hides behind the wave, ~128px visible */
+  padding-bottom: var(--space-24);
 }
 
 .row {
@@ -15,7 +17,7 @@
 
 .iconWrap {
   position: relative;
-  width: 200px;
+  width: 270px;
   flex-shrink: 0;
 }
 
@@ -61,16 +63,22 @@
 }
 
 .chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 0 var(--space-5);
   font-size: var(--text-sm);
-  color: var(--color-text-secondary);
+  font-weight: var(--font-medium);
+  color: var(--color-text-primary);
+  background-color: transparent;
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-full);
-  padding: var(--space-2) var(--space-5);
-  transition: color var(--transition-fast), border-color var(--transition-fast);
+  border-radius: var(--radius-md);
+  transition: background-color var(--transition-fast), border-color var(--transition-fast);
 }
 
 .chip:hover {
-  color: var(--color-text-primary);
+  background-color: var(--color-bg-secondary);
   border-color: var(--color-border-strong);
 }
 

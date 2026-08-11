@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import styles from './AboutSnapshot.module.css';
+import Image from 'next/image';
 
 const facts = [
   { label: 'Based in', value: 'Portland, OR' },
@@ -19,32 +20,45 @@ export function AboutSnapshot() {
         <path d="M0,64 C280,120 480,0 720,32 C960,64 1160,112 1440,48 L1440,120 L0,120 Z" />
       </svg>
 
-      <div className="container">
+      <div className={`container ${styles.inner}`}>
         <div className={styles.card}>
           <div className={styles.grid}>
-            <div className={styles.text}>
-              <h2>About me</h2>
-              <p>
-                I&apos;m a full-stack developer and UX engineer who cares
-                about the details most people skip — the token system behind
-                a color palette, the timing curve on a hover state.
-              </p>
-              <p>
-                I like building things that feel considered from end to end:
-                clean architecture underneath, thoughtful interaction on top.
-              </p>
-              <Link href="/about" className={styles.link}>
-                Read more →
-              </Link>
+            <div className={styles.photo}>
+              <Image
+                src="/about.jpg"
+                alt="Tess Ellis"
+                fill
+                sizes="(min-width: 640px) 300px, 100vw"
+                draggable={false}
+                className={styles.photoImg}
+              />
             </div>
 
-            <div className={styles.facts}>
-              {facts.map((fact) => (
-                <div key={fact.label} className={styles.factItem}>
-                  <span className={styles.factLabel}>{fact.label}</span>
-                  <span className={styles.factValue}>{fact.value}</span>
-                </div>
-              ))}
+            <div className={styles.body}>
+              <div className={styles.text}>
+                <h2>About me</h2>
+                <p>
+                  I&apos;m a full-stack developer and UX engineer who cares
+                  about the details most people skip — the token system behind
+                  a color palette, the timing curve on a hover state.
+                </p>
+                <p>
+                  I like building things that feel considered from end to end:
+                  clean architecture underneath, thoughtful interaction on top.
+                </p>
+                <Link href="/about" className={styles.link}>
+                  Read more →
+                </Link>
+              </div>
+
+              <div className={styles.facts}>
+                {facts.map((fact) => (
+                  <div key={fact.label} className={styles.factItem}>
+                    <span className={styles.factLabel}>{fact.label}</span>
+                    <span className={styles.factValue}>{fact.value}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>

@@ -9,29 +9,61 @@
   overflow: visible;
 }
 
+.inner {
+  width: 100%;
+}
+
 .waveBottom {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 48px;
-  transform: translateY(calc(100% - 1px)) scaleY(-1);
+  height: 85px;
+  transform: translateY(calc(100%)) scaleY(-1);
   fill: color-mix(in srgb, var(--panel-accent) var(--panel-tint), transparent);
   pointer-events: none;
 }
 
 .card {
+  width: 100%;
+  max-width: none;      /* kills any stray cap so it fills the container edge-to-edge */
+  box-sizing: border-box;
   background-color: var(--color-bg-primary);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   padding: var(--space-8);
-  width: 100%;
-  box-sizing: border-box;
 }
 
 .grid {
   display: grid;
   grid-template-columns: 1fr;
+  gap: var(--space-8);
+}
+
+.photo {
+  position: relative;   /* required for fill */
+  overflow: hidden;     /* clips the photo to the border radius */
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background-color: color-mix(in srgb, var(--color-text-primary) 5%, var(--color-bg-primary));
+}
+
+.photoImg {
+  object-fit: cover;   /* fills the box without distortion */
+}
+
+.photoLabel {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
   gap: var(--space-8);
 }
 
@@ -83,13 +115,12 @@
 
 @media (min-width: 640px) {
   .grid {
-    grid-template-columns: 1.4fr 1fr;
+    grid-template-columns: 300px 1fr;
   }
 
-  .facts {
-    border-top: none;
-    border-left: 1px solid var(--color-border);
-    padding-top: 0;
-    padding-left: var(--space-8);
+  .photo {
+    aspect-ratio: auto;
+    height: 100%;
+    min-height: 380px;
   }
 }

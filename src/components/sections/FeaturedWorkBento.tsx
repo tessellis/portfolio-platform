@@ -27,6 +27,7 @@ export function FeaturedWorkBento({ primary, secondary }: FeaturedWorkBentoProps
                 src={primary.frontmatter.heroImage}
                 alt={primary.frontmatter.title}
                 fill
+                draggable={false}
                 className={styles.thumbnail}
               />
             </div>
@@ -58,6 +59,7 @@ export function FeaturedWorkBento({ primary, secondary }: FeaturedWorkBentoProps
                 src={secondary.frontmatter.heroImage}
                 alt={secondary.frontmatter.title}
                 fill
+                draggable={false}
                 className={styles.thumbnail}
               />
             </div>

@@ -3,7 +3,6 @@
 import Link from 'next/link';
 import { useInViewOnce } from '@/lib/useInViewOnce';
 import { ContactIcon } from './ContactIcon';
-import { ContactSparkleBurst } from './ContactSparkleBurst';
 import styles from './ContactCTA.module.css';
 
 const contactLinks = [
@@ -19,7 +18,6 @@ export function ContactCTA() {
     <section ref={ref} className={styles.panel}>
       <div className={`container ${styles.row}`}>
         <div className={styles.iconWrap}>
-          <ContactSparkleBurst active={inView} />
           <ContactIcon active={inView} />
         </div>
 
@@ -31,20 +29,6 @@ export function ContactCTA() {
             <Link href="/contact" className={styles.button}>
               Get in touch
             </Link>
-          </div>
-
-          <div className={styles.chips}>
-            {contactLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                className={styles.chip}
-                target={link.href.startsWith('http') ? '_blank' : undefined}
-                rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-              >
-                {link.label}
-              </a>
-            ))}
           </div>
         </div>
       </div>

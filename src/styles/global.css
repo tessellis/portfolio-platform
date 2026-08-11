@@ -66,6 +66,9 @@ img {
 
 .site-wrapper {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
 }
 
 .glass-panel {
@@ -96,4 +99,5 @@ img {
 main {
   position: relative;
   z-index: 3;
+  flex: 1 0 auto; /* grows to absorb leftover height, pinning the footer down */
 }
