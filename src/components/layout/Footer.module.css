@@ -1,6 +1,5 @@
 .footer {
-  border-top: 1px solid var(--color-border);
-  margin-top: var(--space-24); /* was var(--space-25), which doesn't exist */
+  margin-top: var(--space-32); /* or similar large value */
 }
 
 .inner {

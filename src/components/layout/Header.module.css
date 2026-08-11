@@ -39,7 +39,7 @@
   font-size: var(--text-base);
   font-weight: var(--font-bold);
   color: var(--color-text-primary);
-  letter-spacing: -0.03em;
+  letter-spacing: -0.05em;
   margin-right: auto;
   font-weight: var(--font-bold);
 }

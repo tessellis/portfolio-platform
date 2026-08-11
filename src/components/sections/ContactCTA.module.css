@@ -1,40 +1,36 @@
 .panel {
   position: relative;
-  min-height: 100vh;
-  min-height: 100dvh;
-  display: flex;
-  align-items: center;
-  background-color: color-mix(in srgb, var(--panel-accent) var(--panel-tint), transparent);
   padding-block: var(--space-16);
-  touch-action: pan-y;
 }
 
-.card {
-  background-color: var(--color-bg-primary);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  padding: var(--space-16) var(--space-8);
-  width: 100%;
-  box-sizing: border-box;
-  text-align: center;
+.row {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--space-4);
+  text-align: center;
+  gap: var(--space-8);
+  max-width: 720px;
+  margin-inline: auto;
 }
 
 .iconWrap {
   position: relative;
-  width: 100px;
-  margin-bottom: var(--space-4);
+  width: 200px;
+  flex-shrink: 0;
 }
 
-.card h2 {
-  font-size: var(--text-3xl);
+.text h2 {
+  font-size: var(--text-4xl);
+  margin-bottom: var(--space-3);
 }
 
-.card p {
+.text p {
+  font-size: var(--text-lg);
   color: var(--color-text-secondary);
+}
+
+.actions {
+  margin-top: var(--space-6);
 }
 
 .button {
@@ -48,7 +44,6 @@
   border-radius: var(--radius-md);
   font-size: var(--text-sm);
   font-weight: var(--font-medium);
-  margin-top: var(--space-2);
   transition: background-color var(--transition-fast);
 }
 
@@ -62,7 +57,7 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: var(--space-3);
-  margin-top: var(--space-4);
+  margin-top: var(--space-6);
 }
 
 .chip {
@@ -77,4 +72,21 @@
 .chip:hover {
   color: var(--color-text-primary);
   border-color: var(--color-border-strong);
+}
+
+@media (min-width: 768px) {
+  .row {
+    flex-direction: row;
+    text-align: left;
+    align-items: center;
+  }
+
+  .text {
+    max-width: 420px;
+  }
+
+  .actions,
+  .chips {
+    justify-content: flex-start;
+  }
 }
