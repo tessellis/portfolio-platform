@@ -9,13 +9,13 @@ const experience = [
     role: 'Lead Software Engineer',
     org: 'OPEnS Lab',
     dates: '2025 — 2026',
-    summary: 'Led development of an open-source IoT data visualization platform.',
+    summary: 'Lead software engineering and technical operations for OPEnS Lab (Openly Published Environmental Sensing Lab) at Oregon State University.',
   },
   {
-    role: 'Placeholder Role',
-    org: 'Placeholder Company',
-    dates: '2024 — 2025',
-    summary: 'One-line summary of what you did in this role.',
+    role: 'Independent Spanish Tutor',
+    org: 'Preply',
+    dates: '2020 — 2026',
+    summary: 'Awarded Preply\'s Super Tutor Badge for three consecutive years, an award given to Preply\'s top tutors',
   },
 ];
 

@@ -5,10 +5,16 @@
 }
 
 .visual {
+  position: relative;   /* required for next/image fill */
+  overflow: hidden;     /* clips the photo to the rounded corners */
   aspect-ratio: 1 / 1;
   background-color: var(--color-bg-tertiary);
   border-radius: var(--radius-lg);
   max-width: 320px;
+}
+
+.visualImg {
+  object-fit: cover;
 }
 
 .text h1 {

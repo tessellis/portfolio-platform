@@ -27,6 +27,7 @@ a {
   color: var(--color-accent);
   text-decoration: none;
   transition: color var(--transition-fast);
+  -webkit-user-drag: none; /* links are draggable and capture scroll over cards */
 }
 
 a:hover {
