@@ -3,18 +3,22 @@ import styles from './Skills.module.css';
 const skillGroups = [
   {
     category: 'Languages',
-    items: ['TypeScript', 'JavaScript', 'Python', 'SQL'],
+    items: ['TypeScript', 'JavaScript', 'Python', 'SQL', 'Kotlin', 'HTML', 'CSS'],
   },
   {
-    category: 'Frontend',
-    items: ['React', 'Next.js', 'CSS', 'Framer Motion'],
+    category: 'Frontend & Mobile',
+    items: ['React', 'Next.js', 'CSS/Design Systems', 'Framer Motion', 'React Native'],
   },
   {
-    category: 'Backend',
-    items: ['Node.js', 'PostgreSQL', 'Prisma', 'REST APIs'],
+    category: 'Backend & Cloud',
+    items: ['Node.js', 'PostgreSQL', 'Flask','Prisma', 'REST APIs', 'AWS', 'GCP'],
   },
   {
-    category: 'Tools & Other',
+    category: 'Data & IoT',
+    items: ['IoT', 'Sensor Data', 'Data Visualization', 'Sonification'],
+  },
+  {
+    category: 'Tools',
     items: ['Git', 'Figma', 'Docker', 'Vercel'],
   },
 ];

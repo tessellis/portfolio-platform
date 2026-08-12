@@ -6,7 +6,7 @@ import styles from './Hero.module.css';
 import { useThemeRevealKey } from '@/lib/useThemeRevealKey';
 
 const name = 'TESS ELLIS';
-const eyebrowText = 'Full stack developer & UX engineer';
+const eyebrowText = 'Lead software engineer';
 const MAX_INTRO_SCALE = 2.1;
 const VIEWPORT_FIT_RATIO = 0.9;
 const SHRINK_DELAY = 1400;
@@ -139,8 +139,7 @@ export function HeroRevealContent() {
         </div>
 
         <p className={styles.subhead}>
-          I build fast, accessible, considered web experiences — from design
-          systems to backend architecture.
+          I lead and build considered software — end to end and across teams, from design systems to backend architecture, with care at every layer.
         </p>
 
         <div className={styles.actions}>
