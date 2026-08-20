@@ -5,6 +5,7 @@ import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { SparkleField } from '@/components/layout/SparkleField';
 import { GlassFilters } from '@/components/layout/GlassFilters';
+import { Analytics } from '@vercel/analytics/next';
 import '@/styles/global.css';
 import '@/styles/typography.css';
 
@@ -44,6 +45,7 @@ export default function RootLayout({
             <Footer />
           </div>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
