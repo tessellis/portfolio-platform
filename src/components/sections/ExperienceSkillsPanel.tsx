@@ -90,6 +90,9 @@ export function ExperienceSkillsPanel() {
                     <span className={styles.pubTitle}>{pub.title}</span>
                     <ExternalLinkMark className={styles.pubIcon} />
                   </a>
+                  <p className={styles.pubMeta}>
+                    <span className={styles.pubVenue}>{pub.venue}</span>, {pub.date}
+                  </p>
                   <p className={styles.pubAbstract}>{pub.abstract}</p>
                 </li>
               ))}

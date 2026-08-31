@@ -150,6 +150,11 @@
   gap: var(--space-6);
 }
 
+.pubItem {
+  display: flex;
+  flex-direction: column;
+}
+
 .pubLink {
   display: inline-flex;
   align-items: baseline;
@@ -185,6 +190,13 @@
   font-size: var(--text-sm);
   color: var(--color-text-muted);
   margin-top: var(--space-1);
+}
+
+.pubAbstract {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  margin-top: var(--space-2);
+  max-width: 65ch;
 }
 
 .pubVenue {
