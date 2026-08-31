@@ -2,6 +2,9 @@
 
 import Link from 'next/link';
 import { useInViewOnce } from '@/lib/useInViewOnce';
+import { publications } from '@/lib/publications';
+import { SparkleMark } from '@/components/ui/SparkleMark';
+import { ExternalLinkMark } from '@/components/ui/ExternalLinkMark';
 import styles from './ExperienceSkillsPanel.module.css';
 
 const experience = [
@@ -31,18 +34,25 @@ export function ExperienceSkillsPanel() {
 
   return (
     <section ref={ref} className={`${styles.panel} ${inView ? styles.inView : ''}`}>
-      <div className={`container ${styles.grid2}`}>
+      <div className={`container ${styles.stack}`}>
         <div className={styles.card}>
           <div className={styles.header}>
-            <h2>Experience</h2>
+            <h2>
+              <SparkleMark className={styles.mark} />
+              Experience
+            </h2>
             <Link href="/about" className={styles.viewAll}>
               Full resume →
             </Link>
           </div>
 
           <ol className={styles.timeline}>
-            {experience.map((item) => (
-              <li key={item.role} className={styles.item}>
+            {experience.map((item, index) => (
+              <li
+                key={item.role}
+                className={styles.item}
+                style={{ transitionDelay: `${0.1 + index * 0.12}s` }}
+              >
                 <div className={styles.dot} />
                 <div>
                   <div className={styles.itemHeader}>
@@ -57,21 +67,54 @@ export function ExperienceSkillsPanel() {
           </ol>
         </div>
 
-        <div className={`${styles.card} ${styles.cardSkills}`}>
-          <h2>Skills & stack</h2>
-          <div className={styles.skillsGrid}>
-            {skillGroups.map((group) => (
-              <div key={group.category} className={styles.group}>
-                <h3 className={styles.groupTitle}>{group.category}</h3>
-                <div className={styles.pillRow}>
-                  {group.items.map((item) => (
-                    <span key={item} className={styles.pill}>
-                      {item}
-                    </span>
-                  ))}
+        <div className={styles.bottomRow}>
+          <div className={`${styles.card} ${styles.compactCard}`}>
+            <div className={styles.header}>
+              <h2>
+                <SparkleMark className={styles.mark} />
+                Publications
+              </h2>
+              <Link href="/about#publications" className={styles.viewAll}>
+                See all →
+              </Link>
+            </div>
+            <ul className={styles.pubList}>
+              {publications.map((pub) => (
+                <li key={pub.title} className={styles.pubItem}>
+                  <a
+                    href={pub.url}
+                    className={styles.pubLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span className={styles.pubTitle}>{pub.title}</span>
+                    <ExternalLinkMark className={styles.pubIcon} />
+                  </a>
+                  <p className={styles.pubAbstract}>{pub.abstract}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className={`${styles.card} ${styles.compactCard}`}>
+            <h2>
+              <SparkleMark className={styles.mark} />
+              Skills & stack
+            </h2>
+            <div className={styles.skillsGrid}>
+              {skillGroups.map((group) => (
+                <div key={group.category} className={styles.group}>
+                  <h3 className={styles.groupTitle}>{group.category}</h3>
+                  <div className={styles.pillRow}>
+                    {group.items.map((item) => (
+                      <span key={item} className={styles.pill}>
+                        {item}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </div>

@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 import { experience, education } from '@/lib/about';
+import { publications } from '@/lib/publications';
+import { ExternalLinkMark } from '@/components/ui/ExternalLinkMark';
 import styles from './FullTimeline.module.css';
 
 export function FullTimeline() {
@@ -66,6 +68,23 @@ export function FullTimeline() {
             </li>
           ))}
         </ol>
+
+        <h2 id="publications" className={styles.educationTitle}>Publications</h2>
+        <ul className={styles.pubList}>
+          {publications.map((pub) => (
+            <li key={pub.title} className={styles.pubItem}>
+              <a
+                href={pub.url}
+                className={styles.pubLink}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span className={styles.pubTitle}>{pub.title}</span>
+                <ExternalLinkMark className={styles.pubIcon} />
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );

@@ -44,6 +44,6 @@ export const education: EducationEntry[] = [
     degree: 'Honors B.S., Computer Science',
     school: 'Oregon State University',
     dates: '2022 — 2026',
-    details: 'Summa cum laude. Honors thesis and coursework in HCI, deep learning, and database systems.',
+    details: 'Magna cum laude. Honors thesis and coursework in HCI, deep learning, and database systems.',
   },
 ];

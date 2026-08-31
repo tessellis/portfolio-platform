@@ -142,3 +142,51 @@
 .toggleLabel:hover {
   color: var(--color-text-primary);
 }
+
+.pubList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.pubLink {
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--space-2);
+  color: var(--color-text-primary);
+}
+
+.pubLink:hover {
+  color: var(--color-accent);
+}
+
+.pubLink:hover .pubIcon {
+  opacity: 1;
+  transform: translate(1px, -1px);
+}
+
+.pubTitle {
+  font-size: var(--text-lg);
+  font-weight: var(--font-medium);
+  line-height: var(--leading-tight);
+}
+
+.pubIcon {
+  width: 0.7em;
+  height: 0.7em;
+  flex-shrink: 0;
+  opacity: 0;
+  transform: translate(0, 0);
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+}
+
+.pubMeta {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  margin-top: var(--space-1);
+}
+
+.pubVenue {
+  font-style: italic;
+}
