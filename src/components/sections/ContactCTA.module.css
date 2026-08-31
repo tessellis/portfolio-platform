@@ -15,10 +15,8 @@
   margin-inline: auto;
 }
 
-.iconWrap {
-  position: relative;
-  width: 270px;
-  flex-shrink: 0;
+.text {
+  max-width: 520px;
 }
 
 .text h2 {
@@ -80,21 +78,4 @@
 .chip:hover {
   background-color: var(--color-bg-secondary);
   border-color: var(--color-border-strong);
-}
-
-@media (min-width: 768px) {
-  .row {
-    flex-direction: row;
-    text-align: left;
-    align-items: center;
-  }
-
-  .text {
-    max-width: 420px;
-  }
-
-  .actions,
-  .chips {
-    justify-content: flex-start;
-  }
 }
