@@ -26,6 +26,8 @@
   --flash-4: #ed6a7a;
   --flash-5: #fba7b1;
 
+  --pill-accent: #286fa5;
+
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
   --font-heading: var(--font-heading), 'Bungee', sans-serif;
@@ -80,7 +82,7 @@
   --transition-base: 250ms ease;
   --transition-slow: 400ms ease;
 
-  --panel-accent: var(--flash-1);
+  --panel-accent: var(--flash-2);
   --panel-tint: 25%;
 }
 
@@ -107,7 +109,9 @@
   --flash-4: #f2808e;
   --flash-5: #ffb3bd;
 
-  --panel-accent: var(--flash-4);
+  --pill-accent: #4f92c9;
+
+  --panel-accent: var(--flash-1);
   --panel-tint: 10%;
 }
 
