@@ -1,61 +1,30 @@
 :root {
-  /* Light mode colors — Option 2: Botanical */
-  /* --color-bg-primary: #fefbf6;
-  --color-bg-secondary: #ece1c9;
-  --color-bg-tertiary: #ded1a8;
-
-  --color-text-primary: #2b2418;
-  --color-text-secondary: #6b5e45;
-  --color-text-muted: #9c8f72;
-
-  --color-accent: #7a1f2e;
-  --color-accent-hover: #98333f;
-  --color-accent-subtle: #f2dcd8;
-
-  --color-border: #ddd0a8;
-  --color-border-strong: #c4b077;
-
-  --flash-0: #5b84c4;
-  --flash-5: #e37f71;
-  --flash-2: #c56b85;
-  --flash-3: #7e9c92;
-  --flash-4: #7a1f2e;
-  --flash-1: #e3a857; */
-
   --space-5: 1.25rem;
-  
+
   --hero-header-delay: 1.7s;   /* was much later — now appears mid-shrink */
   --hero-colorize-delay: 3s;   /* matches COLORIZE_DELAY in HeroRevealContent.tsx exactly */
 
-  --color-bg-primary: #fffbfa;
-  --color-bg-secondary: #f2e2db;
-  --color-bg-tertiary: #e8cebd;
+  --color-bg-primary: #fffdfb;
+  --color-bg-secondary: #f7f5f3;
+  --color-bg-tertiary: #edeae6;
 
-  --color-text-primary: #2b1f1c;
-  --color-text-secondary: #6b534b;
-  --color-text-muted: #9c8378;
+  --color-text-primary: #14202b;
+  --color-text-secondary: #5a5f66;
+  --color-text-muted: #8b9096;
 
-  --color-accent: #c2495e;
-  --color-accent-hover: #a83a4d;
-  --color-accent-subtle: #f5dde1;
+  --color-accent: #ef2c2c;
+  --color-accent-hover: #ee2c2a;
+  --color-accent-subtle: #fce3e3;
 
-  --color-border: #e6d2c5;
-  --color-border-strong: #cfa98f;
+  --color-border: #e8e4de;
+  --color-border-strong: #cfcac2;
 
-  --flash-0: #c2495e;
-  --flash-1: #cd5f6c;
-  --flash-2: #d67483;
-  --flash-3: #de8c82;
-  --flash-4: #e2977a;
-  --flash-5: #d98a5c;
-
-  /* --flash-0: #5b84c4;
-  --flash-5: #e37f71;
-  --flash-2: #c56b85;
-  --flash-3: #7e9c92;
-  --flash-4: #7a1f2e;
-  --flash-1: #e3a857; */
-
+  --flash-0: #ef2c2c;
+  --flash-1: #286fa5;
+  --flash-2: #fea14e;
+  --flash-3: #58b2cf;
+  --flash-4: #ed6a7a;
+  --flash-5: #fba7b1;
 
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
@@ -111,7 +80,7 @@
   --transition-base: 250ms ease;
   --transition-slow: 400ms ease;
 
-  --panel-accent: var(--flash-3);
+  --panel-accent: var(--flash-1);
   --panel-tint: 25%;
 }
 
@@ -124,22 +93,22 @@
   --color-text-secondary: #b7c5d6;
   --color-text-muted: #71818f;
 
-  --color-accent: #5aa3e8;
-  --color-accent-hover: #7fbaf0;
-  --color-accent-subtle: #16283e;
+  --color-accent: #f2554f;
+  --color-accent-hover: #f57873;
+  --color-accent-subtle: #3a1414;
 
   --color-border: #1b2430;
   --color-border-strong: #263349;
 
-  --flash-0: #1f3f73;
-  --flash-1: #2c5aa0;
-  --flash-2: #3d7dc9;
-  --flash-3: #5aa3e8;
-  --flash-4: #7fbaf0;
-  --flash-5: #7fd4ff;
+  --flash-0: #f2554f;
+  --flash-1: #4f92c9;
+  --flash-2: #ffab5c;
+  --flash-3: #6fc2dd;
+  --flash-4: #f2808e;
+  --flash-5: #ffb3bd;
 
-  --panel-accent: var(--flash-1);
-  --panel-tint: 25%;
+  --panel-accent: var(--flash-4);
+  --panel-tint: 10%;
 }
 
 @media (min-width: 640px) {
