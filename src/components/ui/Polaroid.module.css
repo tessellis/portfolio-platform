@@ -1,0 +1,47 @@
+.frame {
+  position: relative;
+  display: block;
+  width: 100%;
+  background-color: var(--color-bg-primary);
+  padding: 4% 4% 13%;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
+  border-radius: 2px;
+  box-sizing: border-box;
+}
+
+.tape {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  width: 28%;
+  height: 26px;
+  transform: translateX(-50%) rotate(-4deg);
+  z-index: 2;
+}
+
+.photo {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background-color: var(--color-bg-tertiary);
+}
+
+.img {
+  object-fit: cover;
+}
+
+.placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-bg-tertiary);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  text-align: center;
+  padding: var(--space-4);
+  box-sizing: border-box;
+}

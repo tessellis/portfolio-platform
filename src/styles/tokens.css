@@ -82,7 +82,7 @@
   --transition-base: 250ms ease;
   --transition-slow: 400ms ease;
 
-  --panel-accent: var(--flash-2);
+  --panel-accent: var(--flash-1);
   --panel-tint: 25%;
 }
 

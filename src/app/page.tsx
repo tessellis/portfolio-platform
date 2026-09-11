@@ -1,6 +1,6 @@
 import { Hero } from '@/components/sections/Hero';
 import { FeaturedWork } from '@/components/sections/FeaturedWork';
-import { AboutSnapshot } from '@/components/sections/AboutSnapshot';
+import { AboutSection } from '@/components/sections/AboutSection';
 import { ContactCTA } from '@/components/sections/ContactCTA';
 import { ExperienceSkillsPanel } from '@/components/sections/ExperienceSkillsPanel';
 
@@ -10,7 +10,7 @@ export default function Home() {
       <Hero />
       <FeaturedWork />
       <ExperienceSkillsPanel />
-      <AboutSnapshot />
+      <AboutSection />
       <ContactCTA />
     </>
   );
