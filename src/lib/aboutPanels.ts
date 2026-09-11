@@ -56,9 +56,9 @@ export const aboutPanels: AboutPanelData[] = [
       cutoutWidth: 868,
       cutoutHeight: 1200,
       cutoutPosition: {
-        bottom: '-6.5%',
-        right: '12%',
-        width: '26%',
+        bottom: '-20%',
+        right: '-19%',
+        width: '64%',
       },
     },
     stickers: {
@@ -83,9 +83,9 @@ export const aboutPanels: AboutPanelData[] = [
       cutoutWidth: 595,
       cutoutHeight: 1018,
       cutoutPosition: {
-        top: '-14%',
-        left: '2%',
-        width: '18%',
+        top: '-1%',
+        left: '3%',
+        width: '25%',
       },
     },
     photoRight: {
@@ -97,8 +97,8 @@ export const aboutPanels: AboutPanelData[] = [
       cutoutHeight: 811,
       cutoutPosition: {
         bottom: '-6.5%',
-        right: '3%',
-        width: '18%',
+        right: '12%',
+        width: '26%',
       },
     },
     stickers: {

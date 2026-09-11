@@ -102,7 +102,10 @@ export function AboutCollage() {
             </div>
 
             {panel.photoLeft.cutoutSrc && (
-              <div className={`${styles.piece} ${styles.cutoutDress}`}>
+              <div
+                className={`${styles.piece} ${styles.cutout}`}
+                style={panel.photoLeft.cutoutPosition}
+              >
                 <Image
                   src={panel.photoLeft.cutoutSrc}
                   alt={panel.photoLeft.cutoutAlt ?? ''}
@@ -147,7 +150,10 @@ export function AboutCollage() {
             </div>
 
             {panel.photoRight.cutoutSrc && (
-              <div className={`${styles.piece} ${styles.cutoutBeach}`}>
+              <div
+                className={`${styles.piece} ${styles.cutout}`}
+                style={panel.photoRight.cutoutPosition}
+              >
                 <Image
                   src={panel.photoRight.cutoutSrc}
                   alt={panel.photoRight.cutoutAlt ?? ''}
