@@ -1,3 +1,11 @@
+export interface CutoutPosition {
+  top?: string;
+  left?: string;
+  right?: string;
+  bottom?: string;
+  width: string;
+}
+
 export interface PanelPhoto {
   /** Real photo path. Omit for a placeholder frame. */
   src?: string;
@@ -9,6 +17,8 @@ export interface PanelPhoto {
   cutoutAlt?: string;
   cutoutWidth?: number;
   cutoutHeight?: number;
+  /** Size/position for this specific cutout — independent per panel. */
+  cutoutPosition?: CutoutPosition;
 }
 
 export interface AboutPanelData {
@@ -35,12 +45,21 @@ export const aboutPanels: AboutPanelData[] = [
     paragraph:
       'Placeholder: how coding first clicked, the path through graduation, and building a career out of making things work — and look good doing it.',
     photoLeft: {
-      alt: 'Graduation photo — placeholder',
-      placeholderLabel: 'Graduation photo',
+      src: '/images/about/id-card.jpg',
+      alt: 'Tess holding her Oregon State University College of Engineering ID card',
     },
     photoRight: {
-      alt: 'Coding / workspace photo — placeholder',
-      placeholderLabel: 'Coding photo',
+      src: '/images/about/grad-crowd.jpg',
+      alt: 'Rows of graduates in caps and gowns',
+      cutoutSrc: '/images/about/grad-cutout.png',
+      cutoutAlt: 'Tess at graduation, wearing honor cords',
+      cutoutWidth: 868,
+      cutoutHeight: 1200,
+      cutoutPosition: {
+        bottom: '-6.5%',
+        right: '12%',
+        width: '26%',
+      },
     },
     stickers: {
       starNearLeftPolaroid: `${stickerBase}/star-cream-blue.png`,
@@ -63,6 +82,11 @@ export const aboutPanels: AboutPanelData[] = [
       cutoutAlt: 'Tess as a child in traditional Mexican dress',
       cutoutWidth: 595,
       cutoutHeight: 1018,
+      cutoutPosition: {
+        top: '-14%',
+        left: '2%',
+        width: '18%',
+      },
     },
     photoRight: {
       src: '/images/about/desert-sunset.jpg',
@@ -71,6 +95,11 @@ export const aboutPanels: AboutPanelData[] = [
       cutoutAlt: 'Tess as a toddler on a beach at sunset',
       cutoutWidth: 692,
       cutoutHeight: 811,
+      cutoutPosition: {
+        bottom: '-6.5%',
+        right: '3%',
+        width: '18%',
+      },
     },
     stickers: {
       starNearLeftPolaroid: `${stickerBase}/star-cream-blue.png`,
