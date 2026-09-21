@@ -41,6 +41,7 @@
 
 .card {
   width: 100%;
+  min-width: 0;
   box-sizing: border-box;
   background-color: var(--color-bg-primary);
   border: 1px solid var(--color-border);
@@ -156,50 +157,6 @@
   margin-top: var(--space-2);
 }
 
-/* ===== Skills card ===== */
-
-.skillsGrid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-2) var(--space-6);
-  flex: 1;
-  align-content: space-between;
-}
-
-@media (min-width: 640px) {
-  .skillsGrid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-.group {
-  display: flex;
-  flex-direction: column;
-}
-
-.groupTitle {
-  font-size: var(--text-sm);
-  font-weight: var(--font-semibold);
-  color: var(--color-text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  margin-bottom: var(--space-2);
-}
-
-.pillRow {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-3);
-}
-
-.pill {
-  font-size: var(--text-sm);
-  color: var(--color-text-primary);
-  background-color: color-mix(in srgb, var(--pill-accent) 32%, transparent);
-  border-radius: var(--radius-full);
-  padding: var(--space-2) var(--space-3);
-}
-
 /* ===== Publications — set as citations, not pills ===== */
 
 .pubList {
@@ -220,10 +177,11 @@
 }
 
 .pubLink {
-  display: inline-flex;
+  display: flex;
   align-items: baseline;
   gap: var(--space-2);
   color: var(--color-text-primary);
+  width: 100%;
 }
 
 .pubLink:hover {
@@ -239,6 +197,10 @@
   font-size: var(--text-lg);
   font-weight: var(--font-medium);
   line-height: var(--leading-tight);
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .pubIcon {
@@ -264,4 +226,23 @@
 
 .pubVenue {
   font-style: italic;
+}
+
+/* ===== Education — same divided-list pattern as Publications, no connecting line ===== */
+
+.eduList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.eduItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.eduItem + .eduItem {
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-5);
 }

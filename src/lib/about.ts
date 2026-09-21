@@ -13,6 +13,11 @@ export interface EducationEntry {
   details: string;
 }
 
+export interface SkillGroup {
+  category: string;
+  items: string[];
+}
+
 export const experience: ExperienceEntry[] = [
   {
     role: 'Lead Software Engineer',
@@ -46,4 +51,17 @@ export const education: EducationEntry[] = [
     dates: '2022 — 2026',
     details: 'Magna cum laude. Honors thesis and coursework in HCI, deep learning, and database systems.',
   },
+  {
+    degree: 'Drucilla Shepard Smith Scholastic Award',
+    school: 'Oregon State University',
+    dates: '2022 — 2023',
+    details: 'Awarded for maintaining a 4.0 GPA throughout an academic year — one of the most prestigious academic honors given university-wide at OSU.',
+  },
+];
+
+export const skillGroups: SkillGroup[] = [
+  { category: 'Languages', items: ['TypeScript', 'JavaScript', 'Python', 'SQL'] },
+  { category: 'Frontend', items: ['React', 'Next.js', 'CSS', 'Framer Motion'] },
+  { category: 'Backend', items: ['Node.js', 'PostgreSQL', 'Prisma', 'REST APIs'] },
+  { category: 'Tools & Other', items: ['Git', 'Figma', 'Docker', 'Vercel'] },
 ];

@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { experience, education } from '@/lib/about';
+import { experience, education, skillGroups } from '@/lib/about';
 import { publications } from '@/lib/publications';
 import { ExternalLinkMark } from '@/components/ui/ExternalLinkMark';
 import styles from './FullTimeline.module.css';
@@ -52,11 +52,10 @@ export function FullTimeline() {
           })}
         </ol>
 
-        <h2 className={styles.educationTitle}>Education</h2>
-        <ol className={styles.timeline}>
+        <h2 id="education" className={styles.educationTitle}>Education</h2>
+        <ul className={styles.eduList}>
           {education.map((item) => (
-            <li key={item.degree} className={styles.item}>
-              <div className={styles.dot} />
+            <li key={item.degree} className={styles.eduItem}>
               <div className={styles.itemHeader}>
                 <div>
                   <h3>{item.degree}</h3>
@@ -67,7 +66,7 @@ export function FullTimeline() {
               <p className={styles.summary}>{item.details}</p>
             </li>
           ))}
-        </ol>
+        </ul>
 
         <h2 id="publications" className={styles.educationTitle}>Publications</h2>
         <ul className={styles.pubList}>
@@ -89,6 +88,22 @@ export function FullTimeline() {
             </li>
           ))}
         </ul>
+
+        <h2 className={styles.educationTitle}>Skills & Stack</h2>
+        <div className={styles.skillsGrid}>
+          {skillGroups.map((group) => (
+            <div key={group.category} className={styles.group}>
+              <h3 className={styles.groupTitle}>{group.category}</h3>
+              <div className={styles.pillRow}>
+                {group.items.map((item) => (
+                  <span key={item} className={styles.pill}>
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

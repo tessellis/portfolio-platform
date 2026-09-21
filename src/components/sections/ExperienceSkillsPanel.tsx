@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useInViewOnce } from '@/lib/useInViewOnce';
 import { publications } from '@/lib/publications';
+import { education } from '@/lib/about';
 import { SparkleMark } from '@/components/ui/SparkleMark';
 import { ExternalLinkMark } from '@/components/ui/ExternalLinkMark';
 import styles from './ExperienceSkillsPanel.module.css';
@@ -20,13 +21,6 @@ const experience = [
     dates: '2020 — 2026',
     summary: 'Awarded Preply\'s Super Tutor Badge for three consecutive years, an award given to Preply\'s top tutors',
   },
-];
-
-const skillGroups = [
-  { category: 'Languages', items: ['TypeScript', 'JavaScript', 'Python', 'SQL'] },
-  { category: 'Frontend', items: ['React', 'Next.js', 'CSS', 'Framer Motion'] },
-  { category: 'Backend', items: ['Node.js', 'PostgreSQL', 'Prisma', 'REST APIs'] },
-  { category: 'Tools & Other', items: ['Git', 'Figma', 'Docker', 'Vercel'] },
 ];
 
 export function ExperienceSkillsPanel() {
@@ -72,6 +66,30 @@ export function ExperienceSkillsPanel() {
             <div className={styles.header}>
               <h2>
                 <SparkleMark className={styles.mark} />
+                Education
+              </h2>
+              <Link href="/about#education" className={styles.viewAll}>
+                See all →
+              </Link>
+            </div>
+            <ul className={styles.eduList}>
+              {education.map((item) => (
+                <li key={item.degree} className={styles.eduItem}>
+                  <div className={styles.itemHeader}>
+                    <h3>{item.degree}</h3>
+                    <span className={styles.dates}>{item.dates}</span>
+                  </div>
+                  <p className={styles.org}>{item.school}</p>
+                  <p className={styles.summary}>{item.details}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className={`${styles.card} ${styles.compactCard}`}>
+            <div className={styles.header}>
+              <h2>
+                <SparkleMark className={styles.mark} />
                 Publications
               </h2>
               <Link href="/about#publications" className={styles.viewAll}>
@@ -97,27 +115,6 @@ export function ExperienceSkillsPanel() {
                 </li>
               ))}
             </ul>
-          </div>
-
-          <div className={`${styles.card} ${styles.compactCard}`}>
-            <h2>
-              <SparkleMark className={styles.mark} />
-              Skills & stack
-            </h2>
-            <div className={styles.skillsGrid}>
-              {skillGroups.map((group) => (
-                <div key={group.category} className={styles.group}>
-                  <h3 className={styles.groupTitle}>{group.category}</h3>
-                  <div className={styles.pillRow}>
-                    {group.items.map((item) => (
-                      <span key={item} className={styles.pill}>
-                        {item}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </div>

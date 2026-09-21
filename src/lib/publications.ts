@@ -8,17 +8,17 @@ export interface Publication {
 
 export const publications: Publication[] = [
   {
-    title: 'Placeholder Publication Title One',
-    venue: 'Placeholder Journal Name',
+    title: 'Ear2Earth: Leveraging the Digital Audio Workstation Paradigm for Accessible Scientific Data Sonification',
+    venue: 'Undergraduate Honors Thesis, Oregon State University',
     date: '2026',
-    url: '#',
-    abstract: 'One-line placeholder summary of what this publication covers and why it matters.',
+    url: 'https://ir.library.oregonstate.edu/concern/honors_college_theses/bz60d601g',
+    abstract: 'A web-based platform that sonifies environmental sensor data using a Digital Audio Workstation interface, built for non-technical audiences.',
   },
   {
-    title: 'Placeholder Publication Title Two',
-    venue: 'Placeholder Conference Proceedings',
-    date: '2025',
-    url: '#',
-    abstract: 'One-line placeholder summary of what this publication covers and why it matters.',
+    title: 'Celebrating Identity Series',
+    venue: 'PRISM — OSU Art & Literary Journal',
+    date: '2024',
+    url: 'https://prism.orangemedianetwork.com/?s=tess+ellis',
+    abstract: 'Two personal essays — on the Maya cenotes and on Día de Muertos — selected for PRISM\'s Celebrating Identity Series, paired with an artist interview.',
   },
 ];
