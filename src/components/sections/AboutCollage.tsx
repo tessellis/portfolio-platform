@@ -7,6 +7,7 @@ import Image from 'next/image';
 import { useInViewOnce } from '@/lib/useInViewOnce';
 import { aboutPanels } from '@/lib/aboutPanels';
 import { Polaroid } from '@/components/ui/Polaroid';
+import { PhotoStrip } from '@/components/ui/PhotoStrip';
 import { ImageSticker } from '@/components/ui/ImageSticker';
 import styles from './AboutCollage.module.css';
 
@@ -91,17 +92,32 @@ export function AboutCollage() {
             </div>
 
             {/* ===== top-left corner ===== */}
-            <div className={`${styles.piece} ${styles.polaroidLeft}`}>
-              <Polaroid
-                src={panel.photoLeft.src}
-                alt={panel.photoLeft.alt}
-                rotation={-7}
-                tapeColor="var(--flash-2)"
-                placeholderLabel={panel.photoLeft.placeholderLabel}
-              />
-            </div>
+            {panel.photoStrip ? (
+              <div
+                className={`${styles.piece} ${styles.cutout}`}
+                style={panel.photoStripPosition}
+              >
+                <PhotoStrip
+                  photos={panel.photoStrip}
+                  rotation={panel.photoStripRotation ?? -6}
+                  tapeColor="var(--flash-2)"
+                />
+              </div>
+            ) : (
+              panel.photoLeft && (
+                <div className={`${styles.piece} ${styles.polaroidLeft}`}>
+                  <Polaroid
+                    src={panel.photoLeft.src}
+                    alt={panel.photoLeft.alt}
+                    rotation={-7}
+                    tapeColor="var(--flash-2)"
+                    placeholderLabel={panel.photoLeft.placeholderLabel}
+                  />
+                </div>
+              )
+            )}
 
-            {panel.photoLeft.cutoutSrc && (
+            {panel.photoLeft?.cutoutSrc && (
               <div
                 className={`${styles.piece} ${styles.cutout}`}
                 style={panel.photoLeft.cutoutPosition}

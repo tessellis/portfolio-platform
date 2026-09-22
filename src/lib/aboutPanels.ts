@@ -24,7 +24,14 @@ export interface PanelPhoto {
 export interface AboutPanelData {
   heading: string;
   paragraph: string;
-  photoLeft: PanelPhoto;
+  /** Single Polaroid-style photo for the left slot. Omit if using photoStrip instead. */
+  photoLeft?: PanelPhoto;
+  /** A stacked 3-photo strip for the left slot, used instead of photoLeft. */
+  photoStrip?: { src: string; alt: string }[];
+  /** Size/position for the strip — independent per panel, same shape as CutoutPosition. */
+  photoStripPosition?: CutoutPosition;
+  /** Rotation in degrees for the strip. Defaults to -6 if omitted. */
+  photoStripRotation?: number;
   photoRight: PanelPhoto;
   stickers: {
     starNearLeftPolaroid: string;
@@ -43,7 +50,7 @@ export const aboutPanels: AboutPanelData[] = [
   {
     heading: 'Code & Craft',
     paragraph:
-      'Placeholder: how coding first clicked, the path through graduation, and building a career out of making things work — and look good doing it.',
+      "I graduated from Oregon State with a degree in Computer Science and an unreasonable amount of enthusiasm for well-made interfaces. These days I lead engineering at OPEnS Lab, but am actively seeking new opportunities.",
     photoLeft: {
       src: '/images/about/id-card.jpg',
       alt: 'Tess holding her Oregon State University College of Engineering ID card',
@@ -74,7 +81,7 @@ export const aboutPanels: AboutPanelData[] = [
   {
     heading: 'Roots',
     paragraph:
-      "Born in New Mexico, raised in Alamos — a tiny pueblo on the skirts of the Madre Occidental mountain range in Sonora. I've spent my life traveling,",
+      "Born in New Mexico, raised in Alamos, a tiny pueblo on the skirts of the Madre Occidental mountain range in Sonora. I've spent my life traveling, and that cross-cultural upbringing shapes how I approach the world and my work.",
     photoLeft: {
       src: '/images/about/papel-picado.jpg',
       alt: 'Colorful papel picado banners at a market',
@@ -114,14 +121,21 @@ export const aboutPanels: AboutPanelData[] = [
   {
     heading: 'Beyond the Screen',
     paragraph:
-      'Placeholder: hobbies, music, and the things that fill the time away from a keyboard — what actually makes up a life outside of code.',
-    photoLeft: {
-      alt: 'Hobby photo — placeholder',
-      placeholderLabel: 'Hobby photo',
+      'Outside of the office, I enjoy spending my time outdoors, playing guitar, and exploring new cultures through travel. These experiences inspire my work and fuel my creativity.',
+    photoStrip: [
+      { src: '/images/about/beyond-kimono.jpg', alt: 'Tess and a friend walking a street in Japan wearing kimonos' },
+      { src: '/images/about/beyond-hiking.jpg', alt: 'Tess overlooking mountains from a lookout platform' },
+      { src: '/images/about/beyond-guitar.jpg', alt: 'A younger Tess holding an electric guitar' },
+    ],
+    photoStripPosition: {
+      top: '-11%',
+      left: '5%',
+      width: '25%',
     },
+    photoStripRotation: -11,
     photoRight: {
-      alt: 'Music / interests photo — placeholder',
-      placeholderLabel: 'Interests photo',
+      src: '/images/about/beyond-birthday.jpg',
+      alt: 'Tess smiling at a graduation cake with a lit candle',
     },
     stickers: {
       starNearLeftPolaroid: `${stickerBase}/star-orange-black.png`,

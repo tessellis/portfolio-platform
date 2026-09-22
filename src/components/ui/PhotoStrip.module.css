@@ -1,0 +1,38 @@
+.strip {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+  background-color: var(--color-bg-primary);
+  padding: 4% 4% 6%;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
+  border-radius: 2px;
+  box-sizing: border-box;
+}
+
+.tape {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  width: 40%;
+  height: 26px;
+  transform: translateX(-50%) rotate(-4deg);
+  z-index: 2;
+}
+
+.cell {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background-color: var(--color-bg-tertiary);
+  margin-bottom: 6%;
+}
+
+.cell:last-child {
+  margin-bottom: 0;
+}
+
+.img {
+  object-fit: cover;
+}
