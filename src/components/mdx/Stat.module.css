@@ -1,0 +1,17 @@
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.value {
+  font-size: var(--text-4xl);
+  font-weight: var(--font-bold);
+  color: var(--color-accent);
+  line-height: 1;
+}
+
+.label {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
